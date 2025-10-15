@@ -54,8 +54,6 @@ public class CreditosG extends javax.swing.JPanel {
         transacc = new javax.swing.JPanel();
         AgregarClientBnt = new javax.swing.JPanel();
         txt_agregarcliente = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         BtnBuscar = new javax.swing.JPanel();
@@ -144,26 +142,6 @@ public class CreditosG extends javax.swing.JPanel {
 
         jPanel1.add(AgregarClientBnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 339, 120, 30));
 
-        jLabel4.setText("Ver clientes atrasados");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 339, -1, 30));
-
         jLabel5.setText("    Registrar Pago");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -241,11 +219,6 @@ public class CreditosG extends javax.swing.JPanel {
         ShowPanel(pagoCredit);
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        TblaClientesAtrasados clientAt = new TblaClientesAtrasados();
-        ShowPanel(clientAt);
-    }//GEN-LAST:event_jLabel4MouseClicked
-
     private void BtnBuscarCreditoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnBuscarCreditoMouseClicked
         ctrCr.buscarCreditoPorCedula(txt_buscarCredit.getText().trim());
     }//GEN-LAST:event_BtnBuscarCreditoMouseClicked
@@ -267,11 +240,9 @@ public class CreditosG extends javax.swing.JPanel {
     private javax.swing.JLabel BtnBuscarCredito;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable_creditos;

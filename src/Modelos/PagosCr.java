@@ -18,6 +18,7 @@ public class PagosCr {
     public double montoPago;
     public Date fechaPago;
     public String observanes;
+    public double saldo_pendiente;
 
     public PagosCr() {
         
@@ -27,18 +28,29 @@ public class PagosCr {
         this.montoPago=0;
         this.fechaPago = new Date();
         this.observanes="";
+        this.saldo_pendiente=0;
     }
 
     
     
-    public PagosCr(int id, int idCredito, int numCuota, double montoPago, Date fechaPago, String observanes) {
+    public PagosCr(int id, int idCredito, int numCuota, double montoPago, Date fechaPago, double saldo_pendiente ,String observanes) {
         this.id = id;
         this.idCredito = idCredito;
         this.numCuota = numCuota;
         this.montoPago = montoPago;
         this.fechaPago = fechaPago;
         this.observanes = observanes;
+        this.saldo_pendiente=saldo_pendiente;
     }
+
+    public double getSaldo_pendiente() {
+        return saldo_pendiente;
+    }
+
+    public void setSaldo_pendiente(double saldo_pendiente) {
+        this.saldo_pendiente = saldo_pendiente;
+    }
+    
 
     public int getId() {
         return id;

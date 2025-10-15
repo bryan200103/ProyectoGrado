@@ -7,6 +7,7 @@ package Ventanas;
 import Conexion.Conexionmy;
 import Controladores.ControladorCliente;
 import Controladores.ControladorCreditos;
+import Helper.EnvioWhatsApp;
 import Modelos.Creditos;
 import Modelos.PagosCr;
 import java.awt.Color;
@@ -33,6 +34,9 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
     /**
      * Creates new form AgregarCredito
      */
+    public String telefono_celular;
+    private double monto_pago;
+    private String nombre_cliente;
     private CreditosG creditosG;
     private int id_creditoo;
     private List<Creditos> listaCreditos = new ArrayList<>();
@@ -285,20 +289,20 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_ingreseCedulaMouseClicked
 
     private void txt_calcularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_calcularMouseClicked
-        
-        if(!txt_nombreCliente.getText().trim().isEmpty()){
+
+        if (!txt_nombreCliente.getText().trim().isEmpty()) {
             int indices = jComboBox_Creditos.getSelectedIndex();
             Creditos seleccionadoss = listaCreditos.get(indices);
-            if(!txt_monto.getText().trim().isEmpty()){
+            if (!txt_monto.getText().trim().isEmpty()) {
                 if (seleccionadoss.getSaldoPendiente() >= Double.parseDouble(txt_monto.getText().trim())) {
 
                     calcularClcularPago();
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(this, "El valor del pago es mayor al valor a cancelar.");
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Ingrese un monto a pagar.");
-            }    
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Seleccione un cliente.");
         }
@@ -324,12 +328,26 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
             }
             pago.setNumCuota(Integer.parseInt(txt_numeroCuotas.getText().trim()));
             pago.setObservanes(txt_observaciones.getText().trim());
+            pago.setSaldo_pendiente(Double.parseDouble(txt_totalconI.getText().trim()));
             ctr.guardarPago(pago);
             creddd.setCuotas(Integer.parseInt(txt_cuotaF.getText().trim()));
             creddd.setSaldoPendiente(Double.parseDouble(txt_totalconI.getText().trim()));
             ctr.actualizarCredito(creddd, id_creditoo);
             JOptionPane.showMessageDialog(null, "Pago exitoso");
             creditosG.CargarTablaCredito();
+            
+            
+            
+            monto_pago = Double.parseDouble(txt_monto.getText().trim());
+            String numeroCliente = telefono_celular; // sin 0 inicial y sin +
+            numeroCliente = numeroCliente.substring(1);
+            String mensaje = "Hola "+ nombre_cliente+", tu pago de "+ monto_pago +" fue registrado exitosamente. ¡Gracias por confiar en nosotros!";
+            String numeroWhatsApp = "593" + numeroCliente;
+            System.out.println(numeroWhatsApp);
+
+            //EnvioWhatsApp.enviarMensaje(numeroWhatsApp, mensaje);
+                EnvioWhatsApp enviar = new EnvioWhatsApp();
+                enviar.enviarMensajeWhatsApp(numeroWhatsApp, mensaje);
 
             if (creddd.getSaldoPendiente() == 0) {
                 ctr.actualizarEstado("pagado", id_creditoo);
@@ -399,6 +417,8 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
             id_creditoo = seleccionado.getId();
             txt_numeroCuotas.setText(String.valueOf(seleccionado.getCuotas()));
             txt_pendientesfecha.setText(String.valueOf(seleccionado.getSaldoPendiente()));
+            txt_monto.setText(String.valueOf(seleccionado.getValorCuota()));
+
         }
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -462,10 +482,11 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
             // Mostrar en los campos
             if (seleccionadoss.getSaldoPendiente() == montoPago) {
                 txt_cuotaF.setText(String.valueOf(0));
-                txt_totalconI.setText(String.valueOf(nuevoSaldo));
+                txt_totalconI.setText(String.format("%.2f", nuevoSaldo).replace(",", "."));
 
             } else {
-                txt_totalconI.setText(String.valueOf(nuevoSaldo));
+                txt_totalconI.setText(String.format("%.2f", nuevoSaldo).replace(",", "."));
+
                 txt_cuotaF.setText(String.valueOf(nuevasCuotas));
             }
 
@@ -514,7 +535,7 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
 //        }
 //    }
     public void buscarUsuarioPorCedula(String cedula) {
-        
+
         Connection con = Conexionmy.Conectar();
         String BuscarUser = cedula.trim();
 
@@ -524,7 +545,7 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
         }
 
         //Consulta con INNER JOIN para traer cliente y sus créditos
-        String sql = "SELECT c.id_cliente, c.nombre, c.cedula, "
+        String sql = "SELECT c.id_cliente, c.nombre, c.cedula,cr.valor_cuota, c.telefono, "
                 + "cr.id_credito, cr.monto, cr.cuotas, cr.saldo_pendiente "
                 + "FROM clientes c "
                 + "INNER JOIN creditos cr ON c.id_cliente = cr.id_cliente "
@@ -535,21 +556,22 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
             pst.setString(1, "%" + BuscarUser + "%");
 
             ResultSet rs = pst.executeQuery();
-            
 
             // Limpiamos combo antes de cargar
             jComboBox_Creditos.removeAllItems();
             listaCreditos.clear();
             ///jComboBox_Creditos.addItem("Seleccione");
-            
-            if(!rs.isBeforeFirst()){
+
+            if (!rs.isBeforeFirst()) {
                 JOptionPane.showMessageDialog(null, "Cliente no existe o cedula mal ingresada");
-            }else{
+            } else {
                 while (rs.next()) {
                     double saldoPendiente = rs.getDouble("saldo_pendiente");
                     if (saldoPendiente > 0.0) {
                         // Mostrar solo 1 vez los datos del cliente
                         id_cliente = rs.getInt("id_cliente");
+                        telefono_celular = rs.getString("telefono");
+                        nombre_cliente= rs.getString("nombre");
                         txt_nombreCliente.setText(rs.getString("nombre"));
                         txt_cedulaCliente.setText(rs.getString("cedula"));
 
@@ -558,7 +580,8 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
                                 rs.getInt("id_credito"),
                                 rs.getDouble("monto"),
                                 rs.getInt("cuotas"),
-                                rs.getDouble("saldo_pendiente"));
+                                rs.getDouble("saldo_pendiente"),
+                                rs.getDouble("valor_cuota"));
 
                         listaCreditos.add(credito);
                         //jComboBox_Creditos.addItem(credito);

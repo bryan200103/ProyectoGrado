@@ -156,7 +156,7 @@ public class AgregarCredito extends javax.swing.JPanel {
 
         jComboBox_interes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         jPanel1.add(jComboBox_interes, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 116, -1));
-        jPanel1.add(jSpinner_cuotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+        jPanel1.add(jSpinner_cuotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 80, -1));
 
         jLabel6.setText("Monto credito:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 80, -1));

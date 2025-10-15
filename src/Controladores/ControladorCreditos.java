@@ -115,7 +115,7 @@ public class ControladorCreditos {
         java.sql.Date fechaSQL = new java.sql.Date(objeto.getFechaPago().getTime());
         //java.sql.Date fechaFinSQL = new java.sql.Date(objeto.getFechafin().getTime());
 
-        String sql = "INSERT INTO pagos (id_pago, id_credito, numero_cuota, monto_pagado, fecha_pago, observaciones) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO pagos (id_pago, id_credito, numero_cuota, monto_pagado, fecha_pago,saldo_pendiente, observaciones) VALUES (?, ?, ?, ?, ?, ?,?)";
         try (Connection cn = Conexionmy.Conectar();
             
 
@@ -126,7 +126,8 @@ public class ControladorCreditos {
             ps.setDouble(3, objeto.getNumCuota());
             ps.setDouble(4, objeto.getMontoPago());
             ps.setDate(5,fechaSQL);
-            ps.setString(6, objeto.getObservanes());
+            ps.setDouble(6, objeto.getSaldo_pendiente());
+            ps.setString(7, objeto.getObservanes());
             
             
             int filas = ps.executeUpdate();

@@ -40,11 +40,12 @@ public class Creditos {
         this.observaciones = "";
         this.tipoCredito = 0;
     }
-    public Creditos(int id, double monto, int cuotas, double saldoPendiente) {
+    public Creditos(int id, double monto, int cuotas, double saldoPendiente, double valor_cuota) {
     this.id = id;
     this.monto = monto;
     this.cuotas = cuotas;
     this.saldoPendiente = saldoPendiente;
+    this.valorCuota=valor_cuota;
 }
 @Override
 public String toString() {

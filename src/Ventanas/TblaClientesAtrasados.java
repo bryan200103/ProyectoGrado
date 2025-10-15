@@ -7,15 +7,21 @@ package Ventanas;
 import Conexion.Conexionmy;
 import static Ventanas.ClientesG.jTable_cliente;
 import java.sql.PreparedStatement;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -25,11 +31,22 @@ import javax.swing.table.DefaultTableModel;
  * @author Bryan
  */
 public class TblaClientesAtrasados extends javax.swing.JPanel {
+    private String nombreCliente;
+    private String cedulaCliente;
+    private String telefonoCliente;
+    private String direccionCliente;
+    public String CorreoCliente;
+    public int idCredito;
+    public int idCliente;
+
+    private String fechaActual = "";
+    private String nombreArchinoFinal = "";
 
     /**
      * Creates new form TblaClientesAtrasados
      */
     public TblaClientesAtrasados() {
+        
         initComponents();
         cargarClientesConCuotasAtrasadas();
     }
@@ -43,10 +60,20 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jTable_Atrasados = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        btn_actualizarTabla = new javax.swing.JPanel();
+        txt_actualizarTabla = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_buscarAtrasado = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable_Atrasados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -59,45 +86,182 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable_Atrasados);
+        jScrollPane2.setViewportView(jTable_Atrasados);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 210));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 167, 770, 420));
+
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
+        jLabel1.setText("CLIENTES EN RIESGO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 270, 40));
+
+        btn_actualizarTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_actualizarTabla.setText("            Actualizar tabla");
+        txt_actualizarTabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_actualizarTablaMouseClicked(evt);
+            }
+        });
+        btn_actualizarTabla.add(txt_actualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
+
+        jPanel1.add(btn_actualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 160, 30));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setText("        Buscar");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 90, 30));
+
+        txt_buscarAtrasado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_buscarAtrasadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_buscarAtrasado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 150, 30));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 590));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_actualizarTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_actualizarTablaMouseClicked
+        cargarClientesConCuotasAtrasadas();
+    }//GEN-LAST:event_txt_actualizarTablaMouseClicked
+
+    private void txt_buscarAtrasadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscarAtrasadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_buscarAtrasadoActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        buscarClienteAtrasadoPorCedula(txt_buscarAtrasado.getText().trim());
+        txt_buscarAtrasado.setText("");
+    }//GEN-LAST:event_jLabel2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel btn_actualizarTabla;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable_Atrasados;
+    private javax.swing.JLabel txt_actualizarTabla;
+    private javax.swing.JTextField txt_buscarAtrasado;
     // End of variables declaration//GEN-END:variables
 
 
 
-public void cargarClientesConCuotasAtrasadas() {
-    String sql = "SELECT c.id_credito, cl.id_cliente, cl.nombre, cl.cedula, c.monto, c.cuotas, c.valor_cuota, c.fecha_inicio, c.tipo_credito, " +
+//public void cargarClientesConCuotasAtrasadas() {
+//    String sql = "SELECT " +
+//             "MAX(p.fecha_pago) AS ultima_fecha_pago," +
+//             "cl.id_cliente, cl.nombre, cl.cedula,c.id_credito,cl.telefono,cl.direccion, " +
+//             "c.monto,c.tipo_credito, c.valor_cuota, c.fecha_inicio, c.cuotas, " +
+//             "((CASE " +
+//             "WHEN c.tipo_credito = 2 THEN DATEDIFF(CURDATE(), c.fecha_inicio) " +
+//             "WHEN c.tipo_credito = 3 THEN FLOOR(DATEDIFF(CURDATE(), c.fecha_inicio)/7) " +
+//             "WHEN c.tipo_credito = 1 THEN TIMESTAMPDIFF(MONTH, c.fecha_inicio, CURDATE()) " +
+//             "END) - IFNULL(COUNT(p.id_pago), 0)) AS cuotas_atrasadas " +  // ← usamos IFNULL
+//             "FROM creditos c " +
+//             "INNER JOIN clientes cl ON c.id_cliente = cl.id_cliente " +
+//             "LEFT JOIN pagos p ON c.id_credito = p.id_credito AND (p.fecha_pago <= CURDATE() OR p.fecha_pago IS NULL) " +
+//             "GROUP BY c.id_credito " +
+//             "HAVING cuotas_atrasadas > 0";
+//
+//
+//
+//    DefaultTableModel model = new DefaultTableModel();
+//    model.setColumnIdentifiers(new Object[]{
+//    "Última Fecha de Pago", "id_cliente", "Nombre", "Cédula",
+//    "id_credito", "telefono", "direccion", "Monto de credito",
+//    "Tipo Crédito", "valor de cuotas","fecha_inicio","cuotas","cuotas_atrasadas"
+//});
+//
+//
+//    try (Connection con = Conexion.Conexionmy.Conectar();
+//         PreparedStatement pst = con.prepareStatement(sql);
+//         ResultSet rs = pst.executeQuery()) {
+//
+//        while (rs.next()) {
+//            Object[] fila = new Object[13];
+//            for (int i = 0; i < 13; i++) {
+//                fila[i] = rs.getObject(i + 1);
+//            }
+//            model.addRow(fila);
+//            
+//             idCredito = rs.getInt("id_credito");
+//             nombreCliente = rs.getString("nombre");
+//             cedulaCliente = rs.getString("cedula");
+//             telefonoCliente = rs.getString("telefono");
+//             direccionCliente = rs.getString("direccion");
+//             idCliente = rs.getInt("id_cliente");
+//            System.out.println(idCredito);
+//            System.out.println(nombreCliente);
+//            System.out.println(telefonoCliente);
+//            System.out.println(direccionCliente);
+//            
+//            
+//            actualizarEstadoCliente(idCredito, "Atrasado"); 
+//        }
+//
+//        jTable_Atrasados.setModel(model);
+//
+//    } catch (SQLException e) {
+//        JOptionPane.showMessageDialog(null, "Error al cargar clientes con cuotas atrasadas: " + e.getMessage());
+//    }
+//
+//}
+
+    
+    
+    
+    public void cargarClientesConCuotasAtrasadas() {
+    String sql = "SELECT " +
+                 "MAX(p.fecha_pago) AS ultima_fecha_pago, " +
+                 "cl.id_cliente, cl.nombre, cl.cedula, c.id_credito, cl.telefono, cl.direccion, " +
+                 "c.monto, c.tipo_credito, c.valor_cuota, c.fecha_inicio, c.cuotas, " +
                  "((CASE " +
-                 "WHEN c.tipo_credito = 2 THEN DATEDIFF(CURDATE(), c.fecha_inicio) " +
-                 "WHEN c.tipo_credito = 3 THEN FLOOR(DATEDIFF(CURDATE(), c.fecha_inicio)/7) " +
-                 "WHEN c.tipo_credito = 1 THEN TIMESTAMPDIFF(MONTH, c.fecha_inicio, CURDATE()) " +
-                 "END) - COUNT(p.id_pago)) AS cuotas_atrasadas " +
+                 "   WHEN c.tipo_credito = 2 THEN DATEDIFF(CURDATE(), c.fecha_inicio) " +
+                 "   WHEN c.tipo_credito = 3 THEN FLOOR(DATEDIFF(CURDATE(), c.fecha_inicio)/7) " +
+                 "   WHEN c.tipo_credito = 1 THEN TIMESTAMPDIFF(MONTH, c.fecha_inicio, CURDATE()) " +
+                 " END) - IFNULL(COUNT(p.id_pago), 0)) AS cuotas_atrasadas, " +
+                 "c.saldo_pendiente " +
                  "FROM creditos c " +
                  "INNER JOIN clientes cl ON c.id_cliente = cl.id_cliente " +
-                 "LEFT JOIN pagos p ON c.id_credito = p.id_credito AND p.fecha_pago <= CURDATE() " +
+                 "LEFT JOIN pagos p ON c.id_credito = p.id_credito AND (p.fecha_pago <= CURDATE() OR p.fecha_pago IS NULL) " +
                  "GROUP BY c.id_credito " +
-                 "HAVING cuotas_atrasadas > 0";
+                 "HAVING cuotas_atrasadas > 0 AND saldo_pendiente > 0"; // Solo créditos con saldo pendiente
 
     DefaultTableModel model = new DefaultTableModel();
-    model.setColumnIdentifiers(new Object[]{"ID Credito", "ID Cliente", "Nombre", "Cédula", "Monto", "Cuotas", "Valor Cuota", "Fecha Inicio", "Tipo Crédito", "Cuotas Atrasadas"});
+    model.setColumnIdentifiers(new Object[]{
+        "Última Fecha de Pago", "id_cliente", "Nombre", "Cédula",
+        "id_credito", "telefono", "direccion", "Monto de credito",
+        "Tipo Crédito", "valor de cuotas", "fecha_inicio", "cuotas",
+        "cuotas_atrasadas", "saldo_pendiente"
+    });
 
     try (Connection con = Conexion.Conexionmy.Conectar();
          PreparedStatement pst = con.prepareStatement(sql);
          ResultSet rs = pst.executeQuery()) {
 
         while (rs.next()) {
-            Object[] fila = new Object[10];
-            for (int i = 0; i < 10; i++) {
+            Object[] fila = new Object[14]; // Ahora 14 columnas
+            for (int i = 0; i < 14; i++) {
                 fila[i] = rs.getObject(i + 1);
             }
-            model.addRow(fila);
+
+            double saldoPendiente = rs.getDouble("saldo_pendiente");
+
+            if (saldoPendiente > 0) { // Solo agregar si hay saldo pendiente
+                model.addRow(fila);
+
+                int idCredito = rs.getInt("id_credito");
+                actualizarEstadoCliente(idCredito, "Atrasado");
+            }
         }
 
         jTable_Atrasados.setModel(model);
@@ -105,7 +269,306 @@ public void cargarClientesConCuotasAtrasadas() {
     } catch (SQLException e) {
         JOptionPane.showMessageDialog(null, "Error al cargar clientes con cuotas atrasadas: " + e.getMessage());
     }
-
 }
+
+
+
+public boolean actualizarEstadoCliente(int idCredito, String nuevoEstado) {
+    String sql = "UPDATE creditos SET estado = ? WHERE id_credito = ?";
+    try (Connection conn = Conexionmy.Conectar();  
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+
+        ps.setString(1, nuevoEstado);
+        ps.setInt(2, idCredito);
+
+        int filasActualizadas = ps.executeUpdate();
+        System.out.println("actualizado exitoso");
+
+        boolean isok =  filasActualizadas > 0; 
+        return isok;
+        
+    } catch (SQLException e) {
+        System.out.println("Error al actualizar el estado del cliente: " + e.getMessage());
+        return false;
+    }
+}
+
+
+public void buscarClienteAtrasadoPorCedula(String cedulaBuscada) {
+    String sql = "SELECT " +
+             "MAX(p.fecha_pago) AS ultima_fecha_pago, " +
+             "cl.id_cliente, cl.nombre, cl.cedula, c.id_credito, cl.telefono, cl.direccion, " +
+             "c.monto, c.tipo_credito, c.valor_cuota, c.fecha_inicio, c.cuotas, " +
+             "((CASE " +
+             "WHEN c.tipo_credito = 2 THEN DATEDIFF(CURDATE(), c.fecha_inicio) " +
+             "WHEN c.tipo_credito = 3 THEN FLOOR(DATEDIFF(CURDATE(), c.fecha_inicio)/7) " +
+             "WHEN c.tipo_credito = 1 THEN TIMESTAMPDIFF(MONTH, c.fecha_inicio, CURDATE()) " +
+             "END) - IFNULL(COUNT(p.id_pago), 0)) AS cuotas_atrasadas " +
+             "FROM creditos c " +
+             "INNER JOIN clientes cl ON c.id_cliente = cl.id_cliente " +
+             "LEFT JOIN pagos p ON c.id_credito = p.id_credito " +
+             "WHERE c.estado = 'Atrasado' AND cl.cedula = ? " + // ← buscar solo atrasados por cédula
+             "GROUP BY c.id_credito " +
+             "HAVING cuotas_atrasadas > 0";
+
+    DefaultTableModel model = new DefaultTableModel();
+    model.setColumnIdentifiers(new Object[]{
+        "Última Fecha de Pago", "id_cliente", "Nombre", "Cédula",
+        "id_credito", "telefono", "direccion", "Monto de crédito",
+        "Tipo Crédito", "valor de cuota", "fecha_inicio", "cuotas", "cuotas_atrasadas"
+    });
+
+    try (Connection con = Conexion.Conexionmy.Conectar();
+         PreparedStatement pst = con.prepareStatement(sql)) {
+
+        pst.setString(1, cedulaBuscada); // ← usuario ingresa la cédula
+        ResultSet rs = pst.executeQuery();
+
+        boolean encontrado = false;
+
+        while (rs.next()) {
+            encontrado = true;
+            Object[] fila = new Object[13];
+            for (int i = 0; i < 13; i++) {
+                fila[i] = rs.getObject(i + 1);
+            }
+            model.addRow(fila);
+
+            
+        }
+
+        jTable_Atrasados.setModel(model);
+
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(null, "No se encontró ningún cliente atrasado con esa cédula.");
+        }
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al buscar cliente atrasado: " + e.getMessage());
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//generacion de reportes clientes en mora
+
+
+//public void generarReportePDF() {
+//        com.itextpdf.text.Font negrita = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 14, BaseColor.BLACK);
+//
+//        try {
+//            //cargar fecha
+//            Date date = new Date();
+//            fechaActual = new SimpleDateFormat("yyy/MM/dd").format(date);
+//
+//            //cambiar formato de fecha
+//            String fechaNueva = "";
+//            for (int i = 0; i < fechaActual.length(); i++) {
+//                if (fechaActual.charAt(i) == '/') {
+//
+//                    fechaNueva = fechaActual.replace("/", "_");
+//
+//                }
+//            }
+//
+//            //NOMBRE DE ARCHIVO
+//            nombreArchinoFinal = "Reporte_" + nombreCliente + "_" + fechaNueva + ".pdf";
+//
+//            FileOutputStream archivo;
+//            File file = new File("src/pdf/" + nombreArchinoFinal);
+//            archivo = new FileOutputStream(file);
+//
+//            Document doc = new Document();
+//            PdfWriter.getInstance(doc, archivo);
+//
+//            doc.open();
+//
+//            Image img = Image.getInstance("src/img/etiquet2.jpg");//pdfimagen
+//            img.scaleAbsolute(150, 100);
+//            Paragraph fecha = new Paragraph();
+//            fecha.add(Chunk.NEWLINE);//AGREGAR NUEVA LINEA
+//            fecha.add("Reporte" + "\nfecha: " + fechaActual + "\n\n");
+//
+//            PdfPTable Encabezado = new PdfPTable(4);
+//            Encabezado.setWidthPercentage(100);
+//            Encabezado.getDefaultCell().setBorder(0);//quitar borde de tabla 
+//            //tamaño de las celdas
+//            float[] ColumnaEncabezado = new float[]{50f, 10f, 70f, 40f};
+//            Encabezado.setWidths(ColumnaEncabezado);
+//            Encabezado.setHorizontalAlignment(Element.ALIGN_LEFT);
+//            //agregar celdas
+//            Encabezado.addCell(img);
+//
+//            PdfPCell celdaEncabezado = new PdfPCell();
+//
+//            celdaEncabezado.setBorder(Rectangle.NO_BORDER); // Sin bordes
+//            String Nombre = "        REPORTE GENERADO S.A\n\n";
+//            Paragraph parrafo = new Paragraph(Nombre, negrita);
+//            //String Telefono = "0978675359";
+//            //String Direccion = "CDLA guayacanes \nsector 3 mz 108 villa28\n";
+//            String Descripcion = "Porfavor verificar historia de\n";
+//            String Descripcion1 = "         pago del cliente.";
+//
+//            Encabezado.addCell("");//celda vacia
+//            //Encabezado.addCell("     "+parrafo+"\nTelefono:"+Telefono+"\nDireccion:"+Direccion+"\n\n"+Descripcion+"\n\n");
+//            //parrafo.add(new Phrase("Telefono: " + Telefono + "\n"));
+//            //parrafo.add(new Phrase("Direccion: " + Direccion + "\n"));
+//            parrafo.add(new Phrase(Descripcion));
+//            parrafo.add(new Phrase(Descripcion1));
+//            celdaEncabezado.addElement(parrafo);
+//            Encabezado.addCell(celdaEncabezado);
+//
+//            Encabezado.addCell(fecha);
+//            doc.add(Encabezado);
+//
+//            //CUERPO DEL PDF
+//            Paragraph Cliente = new Paragraph();
+//            Cliente.add(Chunk.NEWLINE);
+//            Cliente.add("DATOS DEL CLIENTE \n\n");
+//            doc.add(Cliente);
+//
+//            //DATOS DEL CLIENTE
+//            PdfPTable tablacliente = new PdfPTable(4);
+//            tablacliente.setWidthPercentage(100);
+//            //tablacliente.getDefaultCell().setBorder(0);//quitar bordes
+//            float[] ColumnaCliente = new float[]{25f, 45f, 30f, 40f};
+//            tablacliente.setWidths(ColumnaCliente);
+//            tablacliente.setHorizontalAlignment(Element.ALIGN_LEFT);
+//
+//            PdfPCell cliente1 = new PdfPCell(new Phrase("Cedula: ", negrita));
+//            PdfPCell cliente2 = new PdfPCell(new Phrase("Nombre: ", negrita));
+//            PdfPCell cliente3 = new PdfPCell(new Phrase("Telefono: ", negrita));
+//            PdfPCell cliente4 = new PdfPCell(new Phrase("Direccion: ", negrita));
+//
+//            //quitar bordes
+//            cliente1.setBorder(0);
+//            cliente2.setBorder(0);
+//            cliente3.setBorder(0);
+//            cliente4.setBorder(0);
+//
+//            //agregar celda a la tabla
+//            tablacliente.addCell(cliente1);
+//            tablacliente.addCell(cliente2);
+//            tablacliente.addCell(cliente3);
+//            tablacliente.addCell(cliente4);
+//            tablacliente.addCell(cedulaCliente);
+//            tablacliente.addCell(nombreCliente);
+//            tablacliente.addCell(telefonoCliente);
+//            tablacliente.addCell(direccionCliente);
+//
+//            //agg al documento
+//            doc.add(tablacliente);
+//
+//            //ESPACIO EN BLANCO
+//            Paragraph espacio = new Paragraph();
+//            espacio.add(Chunk.NEWLINE);
+//            espacio.add("");
+//            espacio.setAlignment(Element.ALIGN_CENTER);
+//            doc.add(espacio);
+//
+//            //agregar ´productos
+//            PdfPTable tablaproducto = new PdfPTable(4);
+//            tablaproducto.setWidthPercentage(100);
+//            tablaproducto.getDefaultCell().setBorder(0);
+//            //tamaño de celdas
+//            float[] ColumnaProducto = new float[]{15f, 50f, 15f, 20f};
+//            tablaproducto.setWidths(ColumnaProducto);
+//            tablaproducto.setHorizontalAlignment(Element.ALIGN_LEFT);
+//            PdfPCell producto1 = new PdfPCell(new Phrase("Monto:", negrita));
+//            PdfPCell producto2 = new PdfPCell(new Phrase("cuota:", negrita));
+//            PdfPCell producto3 = new PdfPCell(new Phrase("valor cuota:", negrita));
+//            PdfPCell producto4 = new PdfPCell(new Phrase("Total a pagar:", negrita));
+//            
+//
+//            //quitar bordes
+//            producto1.setBorder(0);
+//            producto2.setBorder(0);
+//            producto3.setBorder(0);
+//            producto4.setBorder(0);
+//            //COLOR AL ENCABEZADO
+//            producto1.setBackgroundColor(BaseColor.GREEN);
+//            producto2.setBackgroundColor(BaseColor.GREEN);
+//            producto3.setBackgroundColor(BaseColor.GREEN);
+//            producto4.setBackgroundColor(BaseColor.GREEN);
+//
+//            tablaproducto.addCell(producto1);
+//            tablaproducto.addCell(producto2);
+//            tablaproducto.addCell(producto3);
+//            tablaproducto.addCell(producto4);
+//            
+//
+//            
+//            double sumaTotal = 0.0;
+//
+//            for (int i = 0; i < jTable_Atrasados.getRowCount(); i++) {
+//                String producto = jTable_Atrasados.getValueAt(i, 1).toString();
+//                String Cantidad = jTable_Atrasados.getValueAt(i, 2).toString();
+//                String Precio = jTable_Atrasados.getValueAt(i, 3).toString();
+//                String Total = jTable_Atrasados.getValueAt(i, 7).toString();
+//                
+//                try{
+//                    sumaTotal += Double.parseDouble(Total);
+//                } catch (Exception e) {
+//                }
+//
+//                tablaproducto.addCell(Cantidad);
+//                tablaproducto.addCell(producto);
+//                tablaproducto.addCell(Precio);
+//                tablaproducto.addCell(Total);
+//                tablaproducto.addCell(String.format("%.2f", sumaTotal));
+//                
+//                
+//
+//            }
+//
+//            //agregar al documento
+//            doc.add(tablaproducto);
+//
+//
+//            //Final
+//            Paragraph info = new Paragraph();
+//            info.add(Chunk.NEWLINE);
+//            info.add("***************************************\n");
+//            info.add("*  ¡Informacion importante!  *\n");
+//            info.add("***************************************");
+//            info.setAlignment(Element.ALIGN_CENTER);
+//            doc.add(info);
+//
+//            //CERRAR EL DOCUMENTO Y ARCHIVO
+//            doc.close();
+//            archivo.close();
+//
+//            //abrir el doc en el navegador
+//            Desktop.getDesktop().open(file);
+//
+//        } catch (DocumentException | IOException e) {
+//            System.out.println("Error en: " + e);
+//        }
+//    }
+//
+//    public void enviarFactura(int idCliente) {
+//       // Ahora 'correoCliente' tiene el correo del cliente
+//    if (CorreoCliente != null && !CorreoCliente.isEmpty()) {
+//        // Aquí usas el correo para enviar la factura por correo electrónico
+//        String archivoFactura ="src/pdf/"+nombreArchinoFinal;  // El archivo PDF de la factura
+//        //enviarCorreo(CorreoCliente, "Comprobante generado", "Adjunto comprobante de compra", archivoFactura);
+//    } else {
+//        System.out.println("No se pudo obtener el correo del cliente.");
+//    }
+//}
+//
+
+
+
 
 }
