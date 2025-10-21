@@ -282,7 +282,7 @@ public class AgregarCredito extends javax.swing.JPanel {
                             credito.setSaldoPendiente(Double.parseDouble(txt_totalconI.getText().trim().replace(",", ".")));
                             try{
                             credito.setFechainicio(formatear.parse(txt_fechareg.getText().trim()));
-                            credito.setFechainicio(formatear.parse(txt_fechafin.getText().trim()));
+                            credito.setFechafin(formatear.parse(txt_fechafin.getText().trim()));
                             }catch(Exception ex){
                                 System.out.println("error en el parseo de las fecha" + ex);
                             }

@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Ventanas/ClientesG.java</file>
             <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Ventanas/CreditosG.java</file>
-            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Ventanas/ClientesEnRiesgo.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Ventanas/AgregarCredito.java</file>
             <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Ventanas/RealizarPagoCredito.java</file>
-            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Modelos/PagosCr.java</file>
-            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Modelos/Creditos.java</file>
-            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Ventanas/Vista_Menu_Prueba.java</file>
-            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Controladores/ControladorCreditos.java</file>
-            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Helper/EnvioWhatsApp.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Ventanas/TblaClientesAtrasados.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Ventanas/ActualizarCredito.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/cursos_desarrollo/JAVA/FUNDAMENTOSJAVA/SistemaPrestamo/src/Ventanas/ActualizarClient.java</file>
         </group>
     </open-files>
 </project-private>

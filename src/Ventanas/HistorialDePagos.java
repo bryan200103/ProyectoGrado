@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+
 /**
  *
  * @author Bryan
@@ -156,7 +157,7 @@ public class HistorialDePagos extends javax.swing.JPanel {
         jLabel7.setText("Estado:");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, -1));
 
-        jComboBox_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pagado", "Atrasado", "Pendiente" }));
+        jComboBox_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pagado", "Atrasado", "Pendiente", "REFINANCIADO" }));
         jComboBox_estado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_estadoActionPerformed(evt);
@@ -205,20 +206,20 @@ public class HistorialDePagos extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-        boolean completo = jTable_HistorialPagos.print(
-                JTable.PrintMode.FIT_WIDTH, 
-                new MessageFormat("Historial de Pagos"), 
-                new MessageFormat("Página - {0}")
-        );
+            boolean completo = jTable_HistorialPagos.print(
+                    JTable.PrintMode.FIT_WIDTH,
+                    new MessageFormat("Historial de Pagos"),
+                    new MessageFormat("Página - {0}")
+            );
 
-        if (completo) {
-            JOptionPane.showMessageDialog(null, "Impresión completada correctamente.");
-        } else {
-            JOptionPane.showMessageDialog(null, "Impresión cancelada por el usuario.");
+            if (completo) {
+                JOptionPane.showMessageDialog(null, "Impresión completada correctamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Impresión cancelada por el usuario.");
+            }
+        } catch (PrinterException e) {
+            JOptionPane.showMessageDialog(null, "Error al imprimir: " + e.getMessage());
         }
-    } catch (PrinterException e) {
-        JOptionPane.showMessageDialog(null, "Error al imprimir: " + e.getMessage());
-    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -372,6 +373,9 @@ public class HistorialDePagos extends javax.swing.JPanel {
                 break;
             case "Atrasado":
                 sql += " AND cr.estado = 'Atrasado'";
+                break;
+            case "REFINANCIADO":
+                sql += " AND cr.estado = 'REFINANCIADO'";
                 break;
         }
 

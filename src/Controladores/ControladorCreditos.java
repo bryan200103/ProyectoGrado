@@ -66,7 +66,7 @@ public class ControladorCreditos {
         try {
                    
             com.mysql.jdbc.PreparedStatement consulta = (com.mysql.jdbc.PreparedStatement) cn.prepareStatement("UPDATE creditos SET cuotas=?, saldo_pendiente=? WHERE id_credito=?");
-            consulta.setDouble(1, objeto.getCuotas());
+            consulta.setInt(1, objeto.getCuotas());
             consulta.setDouble(2,objeto.getSaldoPendiente());
             consulta.setInt(3, idCredito);
             
@@ -84,6 +84,63 @@ public class ControladorCreditos {
         return respuesta;
 
     }
+    
+    
+     public boolean actualizarCreditoRef(Creditos objeto, int idCredito) {
+    boolean respuesta = false;
+    Connection cn = Conexionmy.Conectar();
+    
+    try {
+        // Convertir las fechas de java.util.Date a java.sql.Date
+        java.sql.Date fechaSQL = new java.sql.Date(objeto.getFechainicio().getTime());
+        java.sql.Date fechaFinSQL = new java.sql.Date(objeto.getFechafin().getTime());
+
+        // Consulta SQL para actualizar todos los campos necesarios
+        String sql = "UPDATE creditos SET "
+                   + "cuotas = ?, "
+                   + "monto = ?, "
+                   + "monto_total = ?, "
+                   + "saldo_pendiente = ?, "
+                   + "fecha_inicio = ?, "
+                   + "fecha_fin = ?, "
+                   + "interes = ?, "
+                   + "tipo_credito = ?, "
+                   + "estado = ? "
+                   + "WHERE id_credito = ?";
+
+        PreparedStatement consulta = cn.prepareStatement(sql);
+
+        // Asignar los valores a los parámetros
+        consulta.setInt(1, objeto.getCuotas());
+        consulta.setDouble(2, objeto.getMonto());
+        consulta.setDouble(3, objeto.getMontoTotal());
+        consulta.setDouble(4, objeto.getSaldoPendiente());
+        consulta.setDate(5, fechaSQL);
+        consulta.setDate(6, fechaFinSQL);
+        consulta.setDouble(7, objeto.getInteres()); // nuevo campo interés
+        consulta.setInt(8, objeto.getTipoCredito()); // nuevo campo modelo_pago
+        consulta.setString(9, "REFINANCIADO"); // Estado fijo
+        consulta.setInt(10, idCredito);
+
+        // Ejecutar la actualización
+        if (consulta.executeUpdate() > 0) {
+            respuesta = true;
+            System.out.println("Crédito actualizado correctamente como REFINANCIADO.");
+        }
+
+        cn.close();
+
+    } catch (SQLException e) {
+        System.out.println("Error al actualizar el crédito: " + e);
+    }
+    return respuesta;
+}
+
+    
+    
+    
+    
+    
     public boolean actualizarEstado(String estado, int idCredito) {
         boolean respuesta = false;
         Connection cn = Conexionmy.Conectar();

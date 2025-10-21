@@ -38,9 +38,11 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
     public String CorreoCliente;
     public int idCredito;
     public int idCliente;
+    public int id_credito;
 
     private String fechaActual = "";
     private String nombreArchinoFinal = "";
+    ActualizarCredito ActualizarCred = new ActualizarCredito(this);
 
     /**
      * Creates new form TblaClientesAtrasados
@@ -69,6 +71,9 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_buscarAtrasado = new javax.swing.JTextField();
+        Refinanciar_Panel = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -88,7 +93,7 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable_Atrasados);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 167, 770, 420));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 770, 230));
 
         jLabel1.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         jLabel1.setText("CLIENTES EN RIESGO");
@@ -104,7 +109,7 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         });
         btn_actualizarTabla.add(txt_actualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
 
-        jPanel1.add(btn_actualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 160, 30));
+        jPanel1.add(btn_actualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 160, 30));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -116,14 +121,27 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         });
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 90, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 90, 30));
 
         txt_buscarAtrasado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_buscarAtrasadoActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_buscarAtrasado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 150, 30));
+        jPanel1.add(txt_buscarAtrasado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 150, 30));
+        jPanel1.add(Refinanciar_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 750, 230));
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setText("                  Recuperar cliente");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 30));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 180, 30));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 590));
     }// </editor-fold>//GEN-END:initComponents
@@ -141,13 +159,21 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         txt_buscarAtrasado.setText("");
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        
+        ShowPanel(ActualizarCred);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Refinanciar_Panel;
     private javax.swing.JPanel btn_actualizarTabla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable_Atrasados;
     private javax.swing.JLabel txt_actualizarTabla;
@@ -221,8 +247,8 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
     
     public void cargarClientesConCuotasAtrasadas() {
     String sql = "SELECT " +
-                 "MAX(p.fecha_pago) AS ultima_fecha_pago, " +
-                 "cl.id_cliente, cl.nombre, cl.cedula, c.id_credito, cl.telefono, cl.direccion, " +
+                 "c.id_credito, " +
+                 "cl.id_cliente, cl.nombre, cl.cedula,MAX(p.fecha_pago) AS ultima_fecha_pago , cl.telefono, cl.direccion, " +
                  "c.monto, c.tipo_credito, c.valor_cuota, c.fecha_inicio, c.cuotas, " +
                  "((CASE " +
                  "   WHEN c.tipo_credito = 2 THEN DATEDIFF(CURDATE(), c.fecha_inicio) " +
@@ -238,8 +264,8 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
 
     DefaultTableModel model = new DefaultTableModel();
     model.setColumnIdentifiers(new Object[]{
-        "Última Fecha de Pago", "id_cliente", "Nombre", "Cédula",
-        "id_credito", "telefono", "direccion", "Monto de credito",
+        "id_credito", "id_cliente", "Nombre", "Cédula",
+        "Última Fecha de Pago", "telefono", "direccion", "Monto de credito",
         "Tipo Crédito", "valor de cuotas", "fecha_inicio", "cuotas",
         "cuotas_atrasadas", "saldo_pendiente"
     });
@@ -265,11 +291,37 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         }
 
         jTable_Atrasados.setModel(model);
+        
+        jTable_Atrasados.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila_point = jTable_Atrasados.rowAtPoint(e.getPoint());
+                int columna_point = 0;
+                int selectedRow = jTable_Atrasados.getSelectedRow();
+
+                if (fila_point >= 0) {
+                    id_credito = Integer.parseInt(jTable_Atrasados.getValueAt(selectedRow, 0).toString());
+                    //System.out.println(id_credito);
+                    //act.PasaridCliente(id_cliente);
+                    ActualizarCred.EnviarDatosClienteSeleccionados(id_credito);
+                    
+                    //EnviarDatosClienteSeleccionada(idCliente);
+
+                }
+            }
+        });
 
     } catch (SQLException e) {
         JOptionPane.showMessageDialog(null, "Error al cargar clientes con cuotas atrasadas: " + e.getMessage());
     }
 }
+    
+    
+       
+
+    
+    
+    
 
 
 
@@ -567,6 +619,17 @@ public void buscarClienteAtrasadoPorCedula(String cedulaBuscada) {
 //    }
 //}
 //
+
+private void ShowPanel(JPanel p) {
+        p.setSize(600, 180);
+        p.setLocation(0, 0);
+        Refinanciar_Panel.removeAll();
+        Refinanciar_Panel.setLayout(new BorderLayout());
+        Refinanciar_Panel.add(p, BorderLayout.CENTER);
+        Refinanciar_Panel.revalidate();
+        Refinanciar_Panel.repaint();
+
+    }
 
 
 

@@ -27,8 +27,9 @@ public class ControladorCliente {
             ps.setString(5, objeto.getCorreo());
 
             int filas = ps.executeUpdate();
+            System.out.println("Guardado con exito ");
             return filas > 0;
-
+            
         } catch (SQLException e) {
             System.out.println("Error al insertar cliente: " + e.getMessage());
             return false;
@@ -107,7 +108,7 @@ public void buscarUsuarioPorCedula(String cedula) {
             model.addColumn("Cedula");
             model.addColumn("Telefono");
             model.addColumn("Direccion");
-            model.addColumn("Correo");;
+            model.addColumn("Correo");
 
             while (rs.next()) {
                 Object[] fila = new Object[6];

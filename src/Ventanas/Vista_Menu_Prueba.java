@@ -361,6 +361,9 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
         txt_salir1.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         txt_salir1.setText("                       SALIR");
         txt_salir1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_salir1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txt_salir1MouseEntered(evt);
             }
@@ -524,6 +527,10 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
         HistorialDePagos historial = new HistorialDePagos();
         ShowPanel(historial);
     }//GEN-LAST:event_txt_HistPagosMouseClicked
+
+    private void txt_salir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_salir1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_txt_salir1MouseClicked
 
     /**
      * @param args the command line arguments

@@ -64,7 +64,7 @@ public class Login extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(85, 87, 86));
@@ -130,6 +130,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         txt_iniciarsesion.setFont(new java.awt.Font("Stencil", 0, 12)); // NOI18N
+        txt_iniciarsesion.setForeground(new java.awt.Color(255, 255, 255));
         txt_iniciarsesion.setText("INICIAR SESIÓN");
 
         javax.swing.GroupLayout iniciarSBtnLayout = new javax.swing.GroupLayout(iniciarSBtn);
@@ -155,7 +156,7 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("INICIAR SESIÓN");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 291, 55));
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(0, 102, 153));
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
@@ -167,7 +168,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        salirBtn.setBackground(new java.awt.Color(0, 0, 0));
+        salirBtn.setBackground(new java.awt.Color(0, 102, 153));
 
         txt_salir.setBackground(new java.awt.Color(255, 255, 255));
         txt_salir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

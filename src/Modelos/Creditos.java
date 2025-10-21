@@ -14,7 +14,7 @@ public class Creditos {
     private int id;
     private int idcliente;
     private double monto;
-    private int interes;
+    private double interes;
     private int cuotas;
     private double montoTotal;
     private double valorCuota;
@@ -29,7 +29,7 @@ public class Creditos {
         this.id = 0;
         this.idcliente = 0;
         this.monto = 0;
-        this.interes = 0;
+        this.interes = 0.0;
         this.cuotas = 0;
         this.montoTotal = 0;
         this.valorCuota = 0;
@@ -54,7 +54,7 @@ public String toString() {
     
     
     
-    public Creditos(int id, int idcliente, double monto, int interes, int cuotas, double montoTotal, double valorCuota, double saldoPendiente, Date Fechainicio, Date Fechafin,String estado, String observaciones, int tipoCredito) {
+    public Creditos(int id, int idcliente, double monto, double interes, int cuotas, double montoTotal, double valorCuota, double saldoPendiente, Date Fechainicio, Date Fechafin,String estado, String observaciones, int tipoCredito) {
         this.id = id;
         this.idcliente = idcliente;
         this.monto = monto;
@@ -94,11 +94,11 @@ public String toString() {
         this.monto = monto;
     }
 
-    public int getInteres() {
+    public double getInteres() {
         return interes;
     }
 
-    public void setInteres(int interes) {
+    public void setInteres(double interes) {
         this.interes = interes;
     }
 
