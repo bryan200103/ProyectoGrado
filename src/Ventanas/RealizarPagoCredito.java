@@ -619,7 +619,7 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
 
         jComboBox_Creditos.setSelectedItem("Seleccione");
         //jComboBox_interes.setSelectedItem("Seleccione");
-        
+        //hola de prueba
         
     }
 }
