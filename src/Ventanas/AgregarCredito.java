@@ -99,9 +99,11 @@ public class AgregarCredito extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setPreferredSize(new java.awt.Dimension(770, 200));
+        setPreferredSize(new java.awt.Dimension(770, 210));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(246, 246, 246));
+        jPanel1.setPreferredSize(new java.awt.Dimension(761, 210));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ingreseCedulaBtn.setBackground(new java.awt.Color(204, 204, 204));
@@ -155,6 +157,11 @@ public class AgregarCredito extends javax.swing.JPanel {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 72, -1));
 
         jComboBox_interes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        jComboBox_interes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_interesActionPerformed(evt);
+            }
+        });
         jPanel1.add(jComboBox_interes, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 116, -1));
         jPanel1.add(jSpinner_cuotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 80, -1));
 
@@ -200,6 +207,7 @@ public class AgregarCredito extends javax.swing.JPanel {
         agregarCreditoBtn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_agregarCredito.setText("   Agregar credito");
+        txt_agregarCredito.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         txt_agregarCredito.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_agregarCreditoMouseClicked(evt);
@@ -222,6 +230,7 @@ public class AgregarCredito extends javax.swing.JPanel {
         calcularBtn.setBackground(new java.awt.Color(255, 255, 255));
 
         txt_calcular.setText("          Calcular");
+        txt_calcular.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         txt_calcular.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_calcularMouseClicked(evt);
@@ -247,7 +256,7 @@ public class AgregarCredito extends javax.swing.JPanel {
 
         jPanel1.add(calcularBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, -1, 30));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 200));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 210));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_ingreseCedulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_ingreseCedulaMouseClicked
@@ -346,6 +355,10 @@ public class AgregarCredito extends javax.swing.JPanel {
         ingreseCedulaBtn.setBackground(Color.white);
         txt_ingreseCedula.setForeground(Color.black);
     }//GEN-LAST:event_txt_ingreseCedulaMouseExited
+
+    private void jComboBox_interesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_interesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_interesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

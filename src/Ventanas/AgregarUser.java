@@ -62,6 +62,8 @@ public class AgregarUser extends javax.swing.JPanel {
         actualizarBtnUsu = new javax.swing.JPanel();
         txt_actualizarBtn = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(246, 246, 246));
+
         jLabel1.setText("Nombre:");
 
         jLabel2.setText("Cedula:");

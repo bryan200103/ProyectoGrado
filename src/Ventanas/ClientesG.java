@@ -72,13 +72,14 @@ public class ClientesG extends javax.swing.JPanel {
         addUserBtn = new javax.swing.JPanel();
         txt_addUser = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setBackground(new java.awt.Color(231, 250, 250));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buscarUsuarioBtn.setBackground(new java.awt.Color(255, 255, 255));
 
         txt_buscarusuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_buscarusuario.setText("   Buscar Cliente:");
+        txt_buscarusuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         txt_buscarusuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_buscarusuarioMouseClicked(evt);
@@ -102,19 +103,20 @@ public class ClientesG extends javax.swing.JPanel {
             .addComponent(txt_buscarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(buscarUsuarioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 30));
+        jPanel1.add(buscarUsuarioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 30));
 
         txt_buscarName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_buscarNameActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_buscarName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 140, 30));
+        jPanel1.add(txt_buscarName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 140, 30));
 
         buscarCBtn.setBackground(new java.awt.Color(255, 255, 255));
 
         txt_buscarcedula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_buscarcedula.setText("  Buscar nombre:");
+        txt_buscarcedula.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         txt_buscarcedula.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_buscarcedulaMouseClicked(evt);
@@ -138,18 +140,19 @@ public class ClientesG extends javax.swing.JPanel {
             .addComponent(txt_buscarcedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(buscarCBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 100, 30));
+        jPanel1.add(buscarCBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 100, 30));
 
         txt_buscarCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_buscarCedulaActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_buscarCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 140, 30));
+        jPanel1.add(txt_buscarCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 140, 30));
 
         paneltabla.setBackground(new java.awt.Color(153, 153, 153));
         paneltabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTable_cliente.setBackground(new java.awt.Color(246, 246, 246));
         jTable_cliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -163,34 +166,36 @@ public class ClientesG extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable_cliente);
 
-        paneltabla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 190));
+        paneltabla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 190));
 
-        jPanel1.add(paneltabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 770, 190));
+        jPanel1.add(paneltabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 1010, 190));
 
-        jPanel5.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel5.setBackground(new java.awt.Color(231, 250, 250));
 
-        jLabel3.setBackground(new java.awt.Color(51, 153, 255));
+        jLabel3.setBackground(new java.awt.Color(153, 153, 255));
         jLabel3.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("                    GESTION DE Clientes");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 480, 40));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 480, 40));
 
         actualizarBtnUsuario.setBackground(new java.awt.Color(255, 255, 255));
 
         txt_Actualiz.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_Actualiz.setText("     Actualizar clientes");
+        txt_Actualiz.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         txt_Actualiz.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_ActualizMouseClicked(evt);
@@ -214,12 +219,13 @@ public class ClientesG extends javax.swing.JPanel {
             .addComponent(txt_Actualiz, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(actualizarBtnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 140, 30));
+        jPanel1.add(actualizarBtnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, 140, 30));
 
         actualizarTablaBtn.setBackground(new java.awt.Color(255, 255, 255));
 
         txt_actualizartblaBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_actualizartblaBtn.setText("        Actualizar tabla");
+        txt_actualizartblaBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         txt_actualizartblaBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_actualizartblaBtnMouseClicked(evt);
@@ -243,27 +249,28 @@ public class ClientesG extends javax.swing.JPanel {
             .addComponent(txt_actualizartblaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(actualizarTablaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 140, 30));
+        jPanel1.add(actualizarTablaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 140, 30));
 
-        ContenAct.setBackground(new java.awt.Color(0, 102, 153));
+        ContenAct.setBackground(new java.awt.Color(231, 250, 250));
 
         javax.swing.GroupLayout ContenActLayout = new javax.swing.GroupLayout(ContenAct);
         ContenAct.setLayout(ContenActLayout);
         ContenActLayout.setHorizontalGroup(
             ContenActLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGap(0, 560, Short.MAX_VALUE)
         );
         ContenActLayout.setVerticalGroup(
             ContenActLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 180, Short.MAX_VALUE)
         );
 
-        jPanel1.add(ContenAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 750, 180));
+        jPanel1.add(ContenAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 376, 560, 180));
 
         addUserBtn.setBackground(new java.awt.Color(255, 255, 255));
 
         txt_addUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_addUser.setText("      Agregar Cliente");
+        txt_addUser.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         txt_addUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_addUserMouseClicked(evt);
@@ -287,7 +294,7 @@ public class ClientesG extends javax.swing.JPanel {
             .addComponent(txt_addUser, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(addUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 140, 30));
+        jPanel1.add(addUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -297,7 +304,9 @@ public class ClientesG extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

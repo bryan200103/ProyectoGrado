@@ -77,7 +77,7 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setBackground(new java.awt.Color(231, 250, 250));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable_Atrasados.setModel(new javax.swing.table.DefaultTableModel(
@@ -93,12 +93,13 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable_Atrasados);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 770, 230));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1010, 220));
 
         jLabel1.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         jLabel1.setText("CLIENTES EN RIESGO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 270, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 270, 40));
 
+        btn_actualizarTabla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         btn_actualizarTabla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_actualizarTabla.setText("            Actualizar tabla");
@@ -109,8 +110,9 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         });
         btn_actualizarTabla.add(txt_actualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
 
-        jPanel1.add(btn_actualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 160, 30));
+        jPanel1.add(btn_actualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 60, 160, 30));
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("        Buscar");
@@ -121,19 +123,22 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         });
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 90, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 90, 30));
 
         txt_buscarAtrasado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_buscarAtrasadoActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_buscarAtrasado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 150, 30));
-        jPanel1.add(Refinanciar_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 750, 230));
+        jPanel1.add(txt_buscarAtrasado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 150, 30));
 
+        Refinanciar_Panel.setBackground(new java.awt.Color(231, 250, 250));
+        jPanel1.add(Refinanciar_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 750, 230));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("                  Recuperar cliente");
+        jLabel3.setText("               Recuperar cliente");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -141,9 +146,9 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
         });
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 30));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 180, 30));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 180, 30));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 590));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_actualizarTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_actualizarTablaMouseClicked

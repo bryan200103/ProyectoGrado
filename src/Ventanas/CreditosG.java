@@ -59,11 +59,10 @@ public class CreditosG extends javax.swing.JPanel {
         BtnBuscar = new javax.swing.JPanel();
         BtnBuscarCredito = new javax.swing.JLabel();
         txt_buscarCredit = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setBackground(new java.awt.Color(231, 250, 250));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable_creditos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -84,7 +83,7 @@ public class CreditosG extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,15 +92,14 @@ public class CreditosG extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 770, 230));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1010, 230));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("         Gestion de creditos");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 361, 37));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 361, 37));
 
-        transacc.setBackground(new java.awt.Color(0, 102, 153));
+        transacc.setBackground(new java.awt.Color(231, 250, 250));
 
         javax.swing.GroupLayout transaccLayout = new javax.swing.GroupLayout(transacc);
         transacc.setLayout(transaccLayout);
@@ -114,9 +112,10 @@ public class CreditosG extends javax.swing.JPanel {
             .addGap(0, 210, Short.MAX_VALUE)
         );
 
-        jPanel1.add(transacc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 770, 210));
+        jPanel1.add(transacc, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 770, 210));
 
         txt_agregarcliente.setText("     Agregar Credito");
+        txt_agregarcliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         txt_agregarcliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_agregarclienteMouseClicked(evt);
@@ -140,12 +139,20 @@ public class CreditosG extends javax.swing.JPanel {
             .addComponent(txt_agregarcliente, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(AgregarClientBnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 339, 120, 30));
+        jPanel1.add(AgregarClientBnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 120, 30));
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("    Registrar Pago");
+        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel5MouseExited(evt);
             }
         });
 
@@ -153,16 +160,17 @@ public class CreditosG extends javax.swing.JPanel {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 339, -1, 30));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 120, 30));
 
         BtnBuscarCredito.setText("        Buscar");
+        BtnBuscarCredito.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         BtnBuscarCredito.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnBuscarCreditoMouseClicked(evt);
@@ -191,12 +199,9 @@ public class CreditosG extends javax.swing.JPanel {
         jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 90, 30));
 
         txt_buscarCredit.setPreferredSize(new java.awt.Dimension(59, 16));
-        jPanel1.add(txt_buscarCredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 120, 30));
+        jPanel1.add(txt_buscarCredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buscar por estados" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 52, 180, 30));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 660));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_agregarclienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_agregarclienteMouseClicked
@@ -233,12 +238,21 @@ public class CreditosG extends javax.swing.JPanel {
         BtnBuscarCredito.setForeground(Color.black);
     }//GEN-LAST:event_BtnBuscarCreditoMouseExited
 
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        jPanel6.setBackground(new Color(0, 153, 255));
+        jLabel5.setForeground(Color.white);
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+        jPanel6.setBackground(Color.white);
+        jLabel5.setForeground(Color.black);
+    }//GEN-LAST:event_jLabel5MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AgregarClientBnt;
     private javax.swing.JPanel BtnBuscar;
     private javax.swing.JLabel BtnBuscarCredito;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

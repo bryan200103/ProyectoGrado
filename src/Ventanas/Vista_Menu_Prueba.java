@@ -51,7 +51,9 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
      */
     public Vista_Menu_Prueba() {
         initComponents();
-
+        
+        
+        ajustarImagenAlLabel();
         jDesktopPane_menu = new JDesktopPane();
         //ControladorUsuario user = new ControladorUsuario();
         add(jDesktopPane_menu, BorderLayout.CENTER); // o setContentPane(jDesktopPane_menu);
@@ -117,22 +119,28 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         x_SalirBtn = new javax.swing.JPanel();
         txt_XSalir = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        content = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
         usuarioBtn = new javax.swing.JPanel();
         txt_usuario = new javax.swing.JLabel();
-        clienteBtn = new javax.swing.JPanel();
-        txt_cliente = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
         creditosBtn = new javax.swing.JPanel();
         txt_creditos = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
         transaccionBtn = new javax.swing.JPanel();
         txt_transaccion = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
         histPagosBtn = new javax.swing.JPanel();
         txt_HistPagos = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
         salirBtn1 = new javax.swing.JPanel();
         txt_salir1 = new javax.swing.JLabel();
-        content = new javax.swing.JPanel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        clienteBtn = new javax.swing.JPanel();
+        jSeparator2 = new javax.swing.JSeparator();
+        txt_cliente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -140,9 +148,10 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel8.setBackground(new java.awt.Color(0, 153, 204));
+        jPanel8.setBackground(new java.awt.Color(106, 207, 241));
         jPanel8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel8MouseDragged(evt);
@@ -155,10 +164,10 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
         });
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        x_SalirBtn.setBackground(new java.awt.Color(0, 153, 204));
+        x_SalirBtn.setBackground(new java.awt.Color(106, 207, 241));
         x_SalirBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        txt_XSalir.setBackground(new java.awt.Color(0, 153, 153));
+        txt_XSalir.setBackground(new java.awt.Color(106, 207, 241));
         txt_XSalir.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         txt_XSalir.setForeground(new java.awt.Color(255, 255, 255));
         txt_XSalir.setText("   X");
@@ -187,22 +196,25 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
         jPanel8.add(x_SalirBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, -1, 50));
 
-        jLabel1.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("  CREDITOS Y PRESTAMOS");
-        jPanel8.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 40));
-        jPanel8.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 220, 10));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logoC.png"))); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(200, 117));
+        jPanel8.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 30));
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 50));
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel2.setPreferredSize(new java.awt.Dimension(300, 598));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        content.setBackground(new java.awt.Color(106, 207, 241));
+        content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo pro.png"))); // NOI18N
+        content.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 330, 130));
+
+        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1010, 570));
 
         usuarioBtn.setBackground(new java.awt.Color(255, 255, 255));
+        usuarioBtn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_usuario.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        txt_usuario.setText("                    USUARIOS");
+        txt_usuario.setText("   USUARIOS");
         txt_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_usuarioMouseClicked(evt);
@@ -214,24 +226,141 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
                 txt_usuarioMouseExited(evt);
             }
         });
+        usuarioBtn.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 130, 40));
 
-        javax.swing.GroupLayout usuarioBtnLayout = new javax.swing.GroupLayout(usuarioBtn);
-        usuarioBtn.setLayout(usuarioBtnLayout);
-        usuarioBtnLayout.setHorizontalGroup(
-            usuarioBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        usuarioBtn.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 40));
+
+        jPanel1.add(usuarioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 160, -1));
+
+        creditosBtn.setBackground(new java.awt.Color(255, 255, 255));
+        creditosBtn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_creditos.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        txt_creditos.setText("       CREDITOS");
+        txt_creditos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_creditosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txt_creditosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_creditosMouseExited(evt);
+            }
+        });
+        creditosBtn.add(txt_creditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 8, 110, 30));
+
+        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        creditosBtn.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 40));
+
+        jPanel1.add(creditosBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 160, -1));
+
+        transaccionBtn.setBackground(new java.awt.Color(255, 255, 255));
+        transaccionBtn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_transaccion.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        txt_transaccion.setText(" CLIENTES EN RIESGO");
+        txt_transaccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_transaccionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txt_transaccionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_transaccionMouseExited(evt);
+            }
+        });
+        transaccionBtn.add(txt_transaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 170, 40));
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        transaccionBtn.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 40));
+
+        jPanel1.add(transaccionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 190, -1));
+
+        histPagosBtn.setBackground(new java.awt.Color(255, 255, 255));
+        histPagosBtn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_HistPagos.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        txt_HistPagos.setText("   HISTORIAL DE PAGOS");
+        txt_HistPagos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_HistPagosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txt_HistPagosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_HistPagosMouseExited(evt);
+            }
+        });
+        histPagosBtn.add(txt_HistPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 180, 40));
+
+        jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        histPagosBtn.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 40));
+
+        jPanel1.add(histPagosBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, 210, -1));
+
+        salirBtn1.setBackground(new java.awt.Color(255, 255, 255));
+        salirBtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                salirBtn1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                salirBtn1MouseExited(evt);
+            }
+        });
+
+        txt_salir1.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        txt_salir1.setText("      SALIR");
+        txt_salir1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_salir1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txt_salir1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txt_salir1MouseExited(evt);
+            }
+        });
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator4.setAlignmentX(1.0F);
+
+        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        javax.swing.GroupLayout salirBtn1Layout = new javax.swing.GroupLayout(salirBtn1);
+        salirBtn1.setLayout(salirBtn1Layout);
+        salirBtn1Layout.setHorizontalGroup(
+            salirBtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, salirBtn1Layout.createSequentialGroup()
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txt_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(143, 143, 143))
         );
-        usuarioBtnLayout.setVerticalGroup(
-            usuarioBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        salirBtn1Layout.setVerticalGroup(
+            salirBtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(salirBtn1Layout.createSequentialGroup()
+                .addGroup(salirBtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.add(usuarioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 40));
+        jPanel1.add(salirBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 50, 140, -1));
 
         clienteBtn.setBackground(new java.awt.Color(255, 255, 255));
 
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
         txt_cliente.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        txt_cliente.setText("                  CLIENTES");
+        txt_cliente.setText("   CLIENTES");
         txt_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_clienteMouseClicked(evt);
@@ -249,147 +378,23 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
         clienteBtnLayout.setHorizontalGroup(
             clienteBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(clienteBtnLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(txt_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                .addGap(8, 8, 8))
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         clienteBtnLayout.setVerticalGroup(
             clienteBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, clienteBtnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txt_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(10, 10, 10))
             .addGroup(clienteBtnLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(txt_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addGap(8, 8, 8))
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.add(clienteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 240, 40));
-
-        creditosBtn.setBackground(new java.awt.Color(255, 255, 255));
-
-        txt_creditos.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        txt_creditos.setText("                  CREDITOS");
-        txt_creditos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_creditosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txt_creditosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txt_creditosMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout creditosBtnLayout = new javax.swing.GroupLayout(creditosBtn);
-        creditosBtn.setLayout(creditosBtnLayout);
-        creditosBtnLayout.setHorizontalGroup(
-            creditosBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(creditosBtnLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(txt_creditos, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                .addGap(8, 8, 8))
-        );
-        creditosBtnLayout.setVerticalGroup(
-            creditosBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(creditosBtnLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(txt_creditos, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addGap(8, 8, 8))
-        );
-
-        jPanel2.add(creditosBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 240, 40));
-
-        transaccionBtn.setBackground(new java.awt.Color(255, 255, 255));
-
-        txt_transaccion.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        txt_transaccion.setText("          CLIENTES EN RIESGO");
-        txt_transaccion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_transaccionMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txt_transaccionMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txt_transaccionMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout transaccionBtnLayout = new javax.swing.GroupLayout(transaccionBtn);
-        transaccionBtn.setLayout(transaccionBtnLayout);
-        transaccionBtnLayout.setHorizontalGroup(
-            transaccionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_transaccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-        );
-        transaccionBtnLayout.setVerticalGroup(
-            transaccionBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_transaccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(transaccionBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 240, 40));
-
-        histPagosBtn.setBackground(new java.awt.Color(255, 255, 255));
-
-        txt_HistPagos.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        txt_HistPagos.setText("          HISTORIAL DE PAGOS");
-        txt_HistPagos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_HistPagosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txt_HistPagosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txt_HistPagosMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout histPagosBtnLayout = new javax.swing.GroupLayout(histPagosBtn);
-        histPagosBtn.setLayout(histPagosBtnLayout);
-        histPagosBtnLayout.setHorizontalGroup(
-            histPagosBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_HistPagos, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-        );
-        histPagosBtnLayout.setVerticalGroup(
-            histPagosBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_HistPagos, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(histPagosBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 240, 40));
-
-        salirBtn1.setBackground(new java.awt.Color(255, 255, 255));
-
-        txt_salir1.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        txt_salir1.setText("                       SALIR");
-        txt_salir1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_salir1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txt_salir1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                txt_salir1MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout salirBtn1Layout = new javax.swing.GroupLayout(salirBtn1);
-        salirBtn1.setLayout(salirBtn1Layout);
-        salirBtn1Layout.setHorizontalGroup(
-            salirBtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-        );
-        salirBtn1Layout.setVerticalGroup(
-            salirBtn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(salirBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 240, 40));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 44, 240, -1));
-
-        content.setBackground(new java.awt.Color(153, 153, 153));
-        content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 770, 590));
+        jPanel1.add(clienteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -430,59 +435,93 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_txt_XSalirMouseClicked
 
-    private void txt_usuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuarioMouseEntered
-        usuarioBtn.setBackground(new Color(0, 153, 255));
-        txt_usuario.setForeground(Color.white);
-    }//GEN-LAST:event_txt_usuarioMouseEntered
+    private void txt_salir1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_salir1MouseExited
+        salirBtn1.setBackground(Color.white);
+        txt_salir1.setForeground(Color.black);
+    }//GEN-LAST:event_txt_salir1MouseExited
 
-    private void txt_usuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuarioMouseExited
-        usuarioBtn.setBackground(Color.white);
-        txt_usuario.setForeground(Color.black);
-    }//GEN-LAST:event_txt_usuarioMouseExited
+    private void txt_salir1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_salir1MouseEntered
+        salirBtn1.setBackground(new Color(0, 153, 255));
+        txt_salir1.setForeground(Color.white);
+    }//GEN-LAST:event_txt_salir1MouseEntered
 
-    private void txt_clienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_clienteMouseEntered
-        clienteBtn.setBackground(new Color(0, 153, 255));
-        txt_cliente.setForeground(Color.white);
-    }//GEN-LAST:event_txt_clienteMouseEntered
-
-    private void txt_clienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_clienteMouseExited
-        clienteBtn.setBackground(Color.white);
-        txt_cliente.setForeground(Color.black);
-    }//GEN-LAST:event_txt_clienteMouseExited
-
-    private void txt_creditosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_creditosMouseEntered
-        creditosBtn.setBackground(new Color(0, 153, 255));
-        txt_creditos.setForeground(Color.white);
-    }//GEN-LAST:event_txt_creditosMouseEntered
-
-    private void txt_creditosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_creditosMouseExited
-        creditosBtn.setBackground(Color.white);
-        txt_creditos.setForeground(Color.black);
-    }//GEN-LAST:event_txt_creditosMouseExited
-
-    private void txt_transaccionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_transaccionMouseEntered
-        transaccionBtn.setBackground(new Color(0, 153, 255));
-        txt_transaccion.setForeground(Color.white);
-    }//GEN-LAST:event_txt_transaccionMouseEntered
-
-    private void txt_transaccionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_transaccionMouseExited
-        transaccionBtn.setBackground(Color.white);
-        txt_transaccion.setForeground(Color.black);
-    }//GEN-LAST:event_txt_transaccionMouseExited
-
-    private void txt_HistPagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_HistPagosMouseEntered
-        histPagosBtn.setBackground(new Color(0, 153, 255));
-        txt_HistPagos.setForeground(Color.white);
-    }//GEN-LAST:event_txt_HistPagosMouseEntered
+    private void txt_salir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_salir1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_txt_salir1MouseClicked
 
     private void txt_HistPagosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_HistPagosMouseExited
         histPagosBtn.setBackground(Color.white);
         txt_HistPagos.setForeground(Color.black);
     }//GEN-LAST:event_txt_HistPagosMouseExited
 
+    private void txt_HistPagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_HistPagosMouseEntered
+        histPagosBtn.setBackground(new Color(0, 153, 255));
+        txt_HistPagos.setForeground(Color.white);
+    }//GEN-LAST:event_txt_HistPagosMouseEntered
+
+    private void txt_HistPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_HistPagosMouseClicked
+        HistorialDePagos historial = new HistorialDePagos();
+        ShowPanel(historial);
+    }//GEN-LAST:event_txt_HistPagosMouseClicked
+
+    private void txt_transaccionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_transaccionMouseExited
+        transaccionBtn.setBackground(Color.white);
+        txt_transaccion.setForeground(Color.black);
+    }//GEN-LAST:event_txt_transaccionMouseExited
+
+    private void txt_transaccionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_transaccionMouseEntered
+        transaccionBtn.setBackground(new Color(0, 153, 255));
+        txt_transaccion.setForeground(Color.white);
+    }//GEN-LAST:event_txt_transaccionMouseEntered
+
+    private void txt_transaccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_transaccionMouseClicked
+        TblaClientesAtrasados atrasados = new TblaClientesAtrasados();
+        ShowPanel(atrasados);
+
+    }//GEN-LAST:event_txt_transaccionMouseClicked
+
+    private void txt_creditosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_creditosMouseExited
+        creditosBtn.setBackground(Color.white);
+        txt_creditos.setForeground(Color.black);
+    }//GEN-LAST:event_txt_creditosMouseExited
+
+    private void txt_creditosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_creditosMouseEntered
+        creditosBtn.setBackground(new Color(0, 153, 255));
+        txt_creditos.setForeground(Color.white);
+    }//GEN-LAST:event_txt_creditosMouseEntered
+
+    private void txt_creditosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_creditosMouseClicked
+        CreditosG cred = new CreditosG();
+        ShowPanel(cred);
+    }//GEN-LAST:event_txt_creditosMouseClicked
+
+    private void txt_clienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_clienteMouseExited
+        clienteBtn.setBackground(Color.white);
+        txt_cliente.setForeground(Color.black);
+    }//GEN-LAST:event_txt_clienteMouseExited
+
+    private void txt_clienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_clienteMouseEntered
+        clienteBtn.setBackground(new Color(0, 153, 255));
+        txt_cliente.setForeground(Color.white);
+    }//GEN-LAST:event_txt_clienteMouseEntered
+
+    private void txt_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_clienteMouseClicked
+        ClientesG client = new ClientesG();
+        ShowPanel(client);
+    }//GEN-LAST:event_txt_clienteMouseClicked
+
+    private void txt_usuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuarioMouseExited
+        usuarioBtn.setBackground(Color.white);
+        txt_usuario.setForeground(Color.black);
+    }//GEN-LAST:event_txt_usuarioMouseExited
+
+    private void txt_usuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuarioMouseEntered
+        usuarioBtn.setBackground(new Color(0, 153, 255));
+        txt_usuario.setForeground(Color.white);
+    }//GEN-LAST:event_txt_usuarioMouseEntered
+
     private void txt_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuarioMouseClicked
-        
-        
+
         UsuarioG user = new UsuarioG();
         try{
             if(Usuario.getRolSession().equals("admin")){
@@ -491,46 +530,22 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No tiene Acceso");
             }
         }catch(Exception ex)
-            {
-                System.out.println("Ocurrio un error" + ex);
-                JOptionPane.showMessageDialog(null, "Ocurrio un error, contactese con su proveedor");
-            }
-
+        {
+            System.out.println("Ocurrio un error" + ex);
+            JOptionPane.showMessageDialog(null, "Ocurrio un error, contactese con su proveedor");
+        }
 
     }//GEN-LAST:event_txt_usuarioMouseClicked
 
-    private void txt_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_clienteMouseClicked
-        ClientesG client = new ClientesG();
-        ShowPanel(client);
-    }//GEN-LAST:event_txt_clienteMouseClicked
+    private void salirBtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirBtn1MouseEntered
+        salirBtn1.setBackground(new Color(0, 153, 255));
+        txt_salir1.setForeground(Color.white);
+    }//GEN-LAST:event_salirBtn1MouseEntered
 
-    private void txt_creditosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_creditosMouseClicked
-        CreditosG cred = new CreditosG();
-        ShowPanel(cred);
-    }//GEN-LAST:event_txt_creditosMouseClicked
-
-    private void txt_transaccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_transaccionMouseClicked
-        TblaClientesAtrasados atrasados = new TblaClientesAtrasados();
-        ShowPanel(atrasados);
-        
-    }//GEN-LAST:event_txt_transaccionMouseClicked
-
-    private void txt_salir1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_salir1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_salir1MouseEntered
-
-    private void txt_salir1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_salir1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_salir1MouseExited
-
-    private void txt_HistPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_HistPagosMouseClicked
-        HistorialDePagos historial = new HistorialDePagos();
-        ShowPanel(historial);
-    }//GEN-LAST:event_txt_HistPagosMouseClicked
-
-    private void txt_salir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_salir1MouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_txt_salir1MouseClicked
+    private void salirBtn1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirBtn1MouseExited
+        salirBtn1.setBackground(Color.white);
+        txt_salir1.setForeground(Color.black);
+    }//GEN-LAST:event_salirBtn1MouseExited
 
     /**
      * @param args the command line arguments
@@ -574,10 +589,16 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
     private javax.swing.JPanel creditosBtn;
     private javax.swing.JPanel histPagosBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JPanel salirBtn1;
     private javax.swing.JPanel transaccionBtn;
     private javax.swing.JLabel txt_HistPagos;
@@ -602,6 +623,25 @@ private void ShowPanel(JPanel p) {
 
     }
 
+
+
+private void ajustarImagenAlLabel() {
+    // Cargar la imagen desde el archivo
+    ImageIcon imagenOriginal = new ImageIcon(getClass().getResource("/img/logoC.png"));
+    
+    // Redimensionar la imagen al tamaño del JLabel
+    Image imagenEscalada = imagenOriginal.getImage().getScaledInstance(
+        jLabel2.getWidth(),
+        jLabel2.getHeight(),
+        Image.SCALE_SMOOTH
+    );
+    
+    // Crear nuevo icono redimensionado
+    ImageIcon iconoRedimensionado = new ImageIcon(imagenEscalada);
+    
+    // Asignar la imagen redimensionada al JLabel
+    jLabel2.setIcon(iconoRedimensionado);
+}
 
 
 

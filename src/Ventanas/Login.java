@@ -54,17 +54,17 @@ public class Login extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         iniciarSBtn = new javax.swing.JPanel();
         txt_iniciarsesion = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         salirBtn = new javax.swing.JPanel();
         txt_salir = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setBackground(new java.awt.Color(106, 207, 241));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(85, 87, 86));
@@ -73,12 +73,12 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("USUARIO:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CONTRASEÑA:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
 
         txt_Usuario.setBackground(new java.awt.Color(85, 87, 86));
         txt_Usuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,7 +89,7 @@ public class Login extends javax.swing.JFrame {
                 txt_UsuarioMousePressed(evt);
             }
         });
-        jPanel2.add(txt_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 40, 170, -1));
+        jPanel2.add(txt_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 170, -1));
 
         txt_contraseña.setBackground(new java.awt.Color(85, 87, 86));
         txt_contraseña.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,15 +106,15 @@ public class Login extends javax.swing.JFrame {
                 txt_contraseñaActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 180, -1));
+        jPanel2.add(txt_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 180, -1));
 
         jSeparator1.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 190, 10));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 190, 10));
 
         jSeparator2.setBackground(new java.awt.Color(51, 51, 51));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 180, 10));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 180, 10));
 
         iniciarSBtn.setBackground(new java.awt.Color(102, 102, 102));
         iniciarSBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -147,16 +147,11 @@ public class Login extends javax.swing.JFrame {
             .addComponent(txt_iniciarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel2.add(iniciarSBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 150, 30));
+        jPanel2.add(iniciarSBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 150, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 177, 380, 200));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 227, 380, 250));
 
-        jLabel4.setFont(new java.awt.Font("Stencil", 3, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("INICIAR SESIÓN");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 291, 55));
-
-        jPanel3.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel3.setBackground(new java.awt.Color(106, 207, 241));
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
@@ -168,7 +163,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        salirBtn.setBackground(new java.awt.Color(0, 102, 153));
+        salirBtn.setBackground(new java.awt.Color(106, 207, 241));
 
         txt_salir.setBackground(new java.awt.Color(255, 255, 255));
         txt_salir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -218,6 +213,9 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo pro.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 310, 130));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -338,8 +336,8 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel iniciarSBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -71,10 +71,11 @@ public class UsuarioG extends javax.swing.JPanel {
         addUserBtn = new javax.swing.JPanel();
         txt_addUser = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setBackground(new java.awt.Color(231, 250, 250));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buscarUsuarioBtn.setBackground(new java.awt.Color(255, 255, 255));
+        buscarUsuarioBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         txt_buscarusuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_buscarusuario.setText("   Buscar Usuario:");
@@ -98,7 +99,7 @@ public class UsuarioG extends javax.swing.JPanel {
         );
         buscarUsuarioBtnLayout.setVerticalGroup(
             buscarUsuarioBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_buscarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(txt_buscarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
         );
 
         jPanel1.add(buscarUsuarioBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 30));
@@ -111,6 +112,7 @@ public class UsuarioG extends javax.swing.JPanel {
         jPanel1.add(txt_buscarc, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 140, 30));
 
         buscarCBtn.setBackground(new java.awt.Color(255, 255, 255));
+        buscarCBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         txt_buscarcedula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_buscarcedula.setText("   Buscar cedula:");
@@ -130,11 +132,11 @@ public class UsuarioG extends javax.swing.JPanel {
         buscarCBtn.setLayout(buscarCBtnLayout);
         buscarCBtnLayout.setHorizontalGroup(
             buscarCBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_buscarcedula, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(txt_buscarcedula, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
         );
         buscarCBtnLayout.setVerticalGroup(
             buscarCBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_buscarcedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(txt_buscarcedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
         );
 
         jPanel1.add(buscarCBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 100, 30));
@@ -162,16 +164,15 @@ public class UsuarioG extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable_usuarios);
 
-        paneltabla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 190));
+        paneltabla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 190));
 
-        jPanel1.add(paneltabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 710, 190));
+        jPanel1.add(paneltabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 1000, 190));
 
-        jPanel5.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel5.setBackground(new java.awt.Color(231, 250, 250));
 
         jLabel3.setBackground(new java.awt.Color(51, 153, 255));
         jLabel3.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("                    GESTION DE USUARIOS");
+        jLabel3.setText("                    GESTIóN DE USUARIOS");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -184,9 +185,10 @@ public class UsuarioG extends javax.swing.JPanel {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 480, 40));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 480, 40));
 
         actualizarBtnUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        actualizarBtnUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         txt_Actualiz.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_Actualiz.setText("     Actualizar usuarios");
@@ -206,16 +208,17 @@ public class UsuarioG extends javax.swing.JPanel {
         actualizarBtnUsuario.setLayout(actualizarBtnUsuarioLayout);
         actualizarBtnUsuarioLayout.setHorizontalGroup(
             actualizarBtnUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_Actualiz, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+            .addComponent(txt_Actualiz, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
         );
         actualizarBtnUsuarioLayout.setVerticalGroup(
             actualizarBtnUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_Actualiz, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(txt_Actualiz, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
         );
 
-        jPanel1.add(actualizarBtnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 140, 30));
+        jPanel1.add(actualizarBtnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 140, 30));
 
         actualizarTablaBtn.setBackground(new java.awt.Color(255, 255, 255));
+        actualizarTablaBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         txt_actualizartblaBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_actualizartblaBtn.setText("        Actualizar tabla");
@@ -235,16 +238,16 @@ public class UsuarioG extends javax.swing.JPanel {
         actualizarTablaBtn.setLayout(actualizarTablaBtnLayout);
         actualizarTablaBtnLayout.setHorizontalGroup(
             actualizarTablaBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_actualizartblaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+            .addComponent(txt_actualizartblaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
         );
         actualizarTablaBtnLayout.setVerticalGroup(
             actualizarTablaBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_actualizartblaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(txt_actualizartblaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
         );
 
-        jPanel1.add(actualizarTablaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 140, 30));
+        jPanel1.add(actualizarTablaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 90, 140, 30));
 
-        ContenAct.setBackground(new java.awt.Color(0, 102, 153));
+        ContenAct.setBackground(new java.awt.Color(231, 250, 250));
 
         javax.swing.GroupLayout ContenActLayout = new javax.swing.GroupLayout(ContenAct);
         ContenAct.setLayout(ContenActLayout);
@@ -257,9 +260,10 @@ public class UsuarioG extends javax.swing.JPanel {
             .addGap(0, 180, Short.MAX_VALUE)
         );
 
-        jPanel1.add(ContenAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 600, 180));
+        jPanel1.add(ContenAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 600, 180));
 
         addUserBtn.setBackground(new java.awt.Color(255, 255, 255));
+        addUserBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
 
         txt_addUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txt_addUser.setText("      Agregar Usuario");
@@ -279,24 +283,24 @@ public class UsuarioG extends javax.swing.JPanel {
         addUserBtn.setLayout(addUserBtnLayout);
         addUserBtnLayout.setHorizontalGroup(
             addUserBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_addUser, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+            .addComponent(txt_addUser, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
         );
         addUserBtnLayout.setVerticalGroup(
             addUserBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_addUser, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(txt_addUser, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
         );
 
-        jPanel1.add(addUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 140, 30));
+        jPanel1.add(addUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

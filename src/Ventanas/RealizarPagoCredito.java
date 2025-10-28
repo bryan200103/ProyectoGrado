@@ -106,9 +106,10 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setPreferredSize(new java.awt.Dimension(770, 200));
+        setPreferredSize(new java.awt.Dimension(770, 210));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(246, 246, 246));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ingreseCedulaBtn.setBackground(new java.awt.Color(204, 204, 204));
@@ -277,7 +278,7 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, 20));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 200));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 210));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_ingreseCedulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_ingreseCedulaMouseClicked

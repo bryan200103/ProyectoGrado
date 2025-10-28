@@ -62,6 +62,8 @@ public class ActualizarUser extends javax.swing.JPanel {
         actualizarBtnUsu = new javax.swing.JPanel();
         txt_actualizarBtn = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(246, 246, 246));
+
         jLabel1.setText("Nombre:");
 
         jLabel2.setText("Cedula:");
@@ -75,6 +77,7 @@ public class ActualizarUser extends javax.swing.JPanel {
         actualizarBtnUsu.setBackground(new java.awt.Color(255, 255, 255));
 
         txt_actualizarBtn.setText("            Actualizar");
+        txt_actualizarBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         txt_actualizarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_actualizarBtnMouseClicked(evt);
