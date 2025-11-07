@@ -280,7 +280,7 @@ public class TblaClientesAtrasados extends javax.swing.JPanel {
          ResultSet rs = pst.executeQuery()) {
 
         while (rs.next()) {
-            Object[] fila = new Object[14]; // Ahora 14 columnas
+            Object[] fila = new Object[14]; 
             for (int i = 0; i < 14; i++) {
                 fila[i] = rs.getObject(i + 1);
             }
@@ -339,7 +339,7 @@ public boolean actualizarEstadoCliente(int idCredito, String nuevoEstado) {
         ps.setInt(2, idCredito);
 
         int filasActualizadas = ps.executeUpdate();
-        System.out.println("actualizado exitoso");
+        //System.out.println("actualizado exitoso");
 
         boolean isok =  filasActualizadas > 0; 
         return isok;
@@ -353,8 +353,8 @@ public boolean actualizarEstadoCliente(int idCredito, String nuevoEstado) {
 
 public void buscarClienteAtrasadoPorCedula(String cedulaBuscada) {
     String sql = "SELECT " +
-             "MAX(p.fecha_pago) AS ultima_fecha_pago, " +
-             "cl.id_cliente, cl.nombre, cl.cedula, c.id_credito, cl.telefono, cl.direccion, " +
+             "c.id_credito, " +
+             "cl.id_cliente, cl.nombre, cl.cedula, MAX(p.fecha_pago) AS ultima_fecha_pago , cl.telefono, cl.direccion, " +
              "c.monto, c.tipo_credito, c.valor_cuota, c.fecha_inicio, c.cuotas, " +
              "((CASE " +
              "WHEN c.tipo_credito = 2 THEN DATEDIFF(CURDATE(), c.fecha_inicio) " +
@@ -370,8 +370,8 @@ public void buscarClienteAtrasadoPorCedula(String cedulaBuscada) {
 
     DefaultTableModel model = new DefaultTableModel();
     model.setColumnIdentifiers(new Object[]{
-        "Última Fecha de Pago", "id_cliente", "Nombre", "Cédula",
-        "id_credito", "telefono", "direccion", "Monto de crédito",
+        "id_credito", "id_cliente", "Nombre", "Cédula",
+        "Última Fecha de Pago", "telefono", "direccion", "Monto de crédito",
         "Tipo Crédito", "valor de cuota", "fecha_inicio", "cuotas", "cuotas_atrasadas"
     });
 

@@ -295,9 +295,20 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
             int indices = jComboBox_Creditos.getSelectedIndex();
             Creditos seleccionadoss = listaCreditos.get(indices);
             if (!txt_monto.getText().trim().isEmpty()) {
+                String texto = txt_monto.getText().trim();
+                try {
+                    double monto = Double.parseDouble(texto);
+
+                    System.out.println("Monto válido: " + monto);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Por favor, ingrese un valor numérico válido en el monto.");
+                    txt_monto.requestFocus();
+                    return;
+                }
                 if (seleccionadoss.getSaldoPendiente() >= Double.parseDouble(txt_monto.getText().trim())) {
 
                     calcularClcularPago();
+
                 } else {
                     JOptionPane.showMessageDialog(this, "El valor del pago es mayor al valor a cancelar.");
                 }
@@ -336,19 +347,17 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
             ctr.actualizarCredito(creddd, id_creditoo);
             JOptionPane.showMessageDialog(null, "Pago exitoso");
             creditosG.CargarTablaCredito();
-            
-            
-            
+
             monto_pago = Double.parseDouble(txt_monto.getText().trim());
             String numeroCliente = telefono_celular; // sin 0 inicial y sin +
             numeroCliente = numeroCliente.substring(1);
-            String mensaje = "Hola "+ nombre_cliente+", tu pago de "+ monto_pago +" fue registrado exitosamente. ¡Gracias por confiar en nosotros!";
+            String mensaje = "Hola " + nombre_cliente + ", tu pago de " + monto_pago + " fue registrado exitosamente. ¡Gracias por confiar en nosotros!";
             String numeroWhatsApp = "593" + numeroCliente;
             System.out.println(numeroWhatsApp);
 
             //EnvioWhatsApp.enviarMensaje(numeroWhatsApp, mensaje);
-                EnvioWhatsApp enviar = new EnvioWhatsApp();
-                enviar.enviarMensajeWhatsApp(numeroWhatsApp, mensaje);
+            EnvioWhatsApp enviar = new EnvioWhatsApp();
+            enviar.enviarMensajeWhatsApp(numeroWhatsApp, mensaje);
 
             if (creddd.getSaldoPendiente() == 0) {
                 ctr.actualizarEstado("pagado", id_creditoo);
@@ -572,7 +581,7 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
                         // Mostrar solo 1 vez los datos del cliente
                         id_cliente = rs.getInt("id_cliente");
                         telefono_celular = rs.getString("telefono");
-                        nombre_cliente= rs.getString("nombre");
+                        nombre_cliente = rs.getString("nombre");
                         txt_nombreCliente.setText(rs.getString("nombre"));
                         txt_cedulaCliente.setText(rs.getString("cedula"));
 
@@ -621,6 +630,6 @@ public class RealizarPagoCredito extends javax.swing.JPanel {
         jComboBox_Creditos.setSelectedItem("Seleccione");
         //jComboBox_interes.setSelectedItem("Seleccione");
         //hola de prueba
-        
+
     }
 }

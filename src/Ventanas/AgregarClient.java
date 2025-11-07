@@ -180,31 +180,50 @@ public class AgregarClient extends javax.swing.JPanel {
             //JOptionPane.showMessageDialog(null, "guardado");
 
             if (!controladorCliente.clienteExiste(txt_cedula.getText().trim())) {
-                
-                    cliente.setNombre(txt_nombre.getText().trim());
-                    cliente.setCedula(txt_cedula.getText().trim());
-                    cliente.setCorreo(txt_correo.getText().trim());
-                    cliente.setDireccion(txt_direccion.getText().trim());
-                    cliente.setTelefono(txt_telefono.getText().trim());
-                    if (controladorCliente.guardar(cliente)) {
-                        txt_nombre.setBackground(Color.GREEN);
-                        txt_direccion.setBackground(Color.GREEN);
-                        txt_correo.setBackground(Color.GREEN);
-                        txt_cedula.setBackground(Color.GREEN);
-                        txt_telefono.setBackground(Color.GREEN);
-                        JOptionPane.showMessageDialog(null, "Registro exitoso");
-                        usuarioG.CargarTablaCliente();
-                        txt_nombre.setBackground(Color.white);
-                        txt_direccion.setBackground(Color.white);
-                        txt_cedula.setBackground(Color.white);
-                        txt_correo.setBackground(Color.white);
-                        txt_telefono.setBackground(Color.white);
 
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Error al guardar");
+                cliente.setNombre(txt_nombre.getText().trim());
+                try {
 
+                    Long cedula = Long.parseLong(txt_cedula.getText().trim());
+                    int caracteres = txt_cedula.getText().length();
+                    System.out.println(caracteres);
+                    if (caracteres == 10) {
+                        System.out.println(cedula);
+                        cliente.setCedula(txt_cedula.getText().trim());
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "La cedula solo debe tener 10 digitos");
+                        return;
                     }
-                
+
+                } catch (Exception e) {
+                    System.out.println("la conversion no se realizo con exito" + e);
+                    JOptionPane.showMessageDialog(null, "La cedula solo permite caracteres numericos");
+                    return;
+
+                }
+
+                cliente.setCorreo(txt_correo.getText().trim());
+                cliente.setDireccion(txt_direccion.getText().trim());
+                cliente.setTelefono(txt_telefono.getText().trim());
+                if (controladorCliente.guardar(cliente)) {
+                    txt_nombre.setBackground(Color.GREEN);
+                    txt_direccion.setBackground(Color.GREEN);
+                    txt_correo.setBackground(Color.GREEN);
+                    txt_cedula.setBackground(Color.GREEN);
+                    txt_telefono.setBackground(Color.GREEN);
+                    JOptionPane.showMessageDialog(null, "Registro exitoso");
+                    usuarioG.CargarTablaCliente();
+                    txt_nombre.setBackground(Color.white);
+                    txt_direccion.setBackground(Color.white);
+                    txt_cedula.setBackground(Color.white);
+                    txt_correo.setBackground(Color.white);
+                    txt_telefono.setBackground(Color.white);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al guardar");
+
+                }
 
             } else {
                 txt_nombre.setBackground(Color.yellow);
@@ -260,7 +279,8 @@ public class AgregarClient extends javax.swing.JPanel {
     public int PasaridUsuario(int idUsuario) {
         return this.idUsuario = idUsuario;
     }
-     public void Limpiar() {
+
+    public void Limpiar() {
         txt_nombre.setText("");
         txt_direccion.setText("");
         txt_cedula.setText("");

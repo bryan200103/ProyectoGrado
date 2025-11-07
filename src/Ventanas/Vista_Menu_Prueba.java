@@ -7,6 +7,7 @@ package Ventanas;
 import Controladores.ControladorCliente;
 import Controladores.ControladorUsuario;
 import Modelos.Usuario;
+import Modelos.ValidarSesion;
 
 import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
 import java.awt.BorderLayout;
@@ -18,6 +19,7 @@ import java.awt.Panel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -33,6 +35,8 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
     int xmouse, ymouse;
 
     public static JDesktopPane jDesktopPane_menu;
+    String rutaimglogo = "/img/logoC.png";
+    String rutalogopantalla = "/img/logoC.png";
 //    GestionClientes.jDesktopPane_men= this.jDesktopPane_men;
 
 //    private JMenuItem menucliente;
@@ -51,9 +55,9 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
      */
     public Vista_Menu_Prueba() {
         initComponents();
-        
-        
-        ajustarImagenAlLabel();
+
+        ajustarImagenAlLabel(jLabel2, rutaimglogo);
+        //ajustarImagenAlLabel(jLabel1, rutalogopantalla);
         jDesktopPane_menu = new JDesktopPane();
         //ControladorUsuario user = new ControladorUsuario();
         add(jDesktopPane_menu, BorderLayout.CENTER); // o setContentPane(jDesktopPane_menu);
@@ -100,7 +104,6 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 //        });
     }
 
-    
     private Icon getIcono(String ruta) {
         return new ImageIcon(new ImageIcon(getClass().getResource(ruta))
                 .getImage().getScaledInstance(30, 30, 0));
@@ -206,7 +209,7 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo pro.png"))); // NOI18N
-        content.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 330, 130));
+        content.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 340, 140));
 
         jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1010, 570));
 
@@ -385,12 +388,10 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
         );
         clienteBtnLayout.setVerticalGroup(
             clienteBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, clienteBtnLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txt_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(10, 10, 10))
             .addGroup(clienteBtnLayout.createSequentialGroup()
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(clienteBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txt_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -427,7 +428,7 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_XSalirMouseEntered
 
     private void txt_XSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_XSalirMouseExited
-        x_SalirBtn.setBackground(new Color(0,153,204));
+        x_SalirBtn.setBackground(new Color(0, 153, 204));
         txt_XSalir.setForeground(Color.white);
     }//GEN-LAST:event_txt_XSalirMouseExited
 
@@ -461,7 +462,9 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
     private void txt_HistPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_HistPagosMouseClicked
         HistorialDePagos historial = new HistorialDePagos();
-        ShowPanel(historial);
+        ValidadInicioDeSesion("Historial",historial);
+
+
     }//GEN-LAST:event_txt_HistPagosMouseClicked
 
     private void txt_transaccionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_transaccionMouseExited
@@ -476,7 +479,8 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
     private void txt_transaccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_transaccionMouseClicked
         TblaClientesAtrasados atrasados = new TblaClientesAtrasados();
-        ShowPanel(atrasados);
+        ValidadInicioDeSesion("Atrasados",atrasados);
+
 
     }//GEN-LAST:event_txt_transaccionMouseClicked
 
@@ -492,7 +496,10 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
     private void txt_creditosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_creditosMouseClicked
         CreditosG cred = new CreditosG();
-        ShowPanel(cred);
+
+        ValidadInicioDeSesion("Creditos",cred);
+
+
     }//GEN-LAST:event_txt_creditosMouseClicked
 
     private void txt_clienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_clienteMouseExited
@@ -507,7 +514,9 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
     private void txt_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_clienteMouseClicked
         ClientesG client = new ClientesG();
-        ShowPanel(client);
+        ValidadInicioDeSesion("Clientes",client);
+
+
     }//GEN-LAST:event_txt_clienteMouseClicked
 
     private void txt_usuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuarioMouseExited
@@ -523,17 +532,10 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
     private void txt_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_usuarioMouseClicked
 
         UsuarioG user = new UsuarioG();
-        try{
-            if(Usuario.getRolSession().equals("admin")){
-                ShowPanel(user);
-            }else{
-                JOptionPane.showMessageDialog(null, "No tiene Acceso");
-            }
-        }catch(Exception ex)
-        {
-            System.out.println("Ocurrio un error" + ex);
-            JOptionPane.showMessageDialog(null, "Ocurrio un error, contactese con su proveedor");
-        }
+
+        ValidadInicioDeSesion("Usuarios",user);
+
+        
 
     }//GEN-LAST:event_txt_usuarioMouseClicked
 
@@ -612,7 +614,7 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
     private javax.swing.JPanel x_SalirBtn;
     // End of variables declaration//GEN-END:variables
 
-private void ShowPanel(JPanel p) {
+    private void ShowPanel(JPanel p) {
         p.setSize(690, 590);
         p.setLocation(0, 0);
         content.removeAll();
@@ -623,27 +625,54 @@ private void ShowPanel(JPanel p) {
 
     }
 
+    private void ajustarImagenAlLabel(JLabel label, String ruta) {
+        // Cargar la imagen desde el archivo
+        ImageIcon imagenOriginal = new ImageIcon(getClass().getResource(ruta));
 
+        // Redimensionar la imagen al tamaño del JLabel
+        Image imagenEscalada = imagenOriginal.getImage().getScaledInstance(
+                label.getWidth(),
+                label.getHeight(),
+                Image.SCALE_SMOOTH
+        );
 
-private void ajustarImagenAlLabel() {
-    // Cargar la imagen desde el archivo
-    ImageIcon imagenOriginal = new ImageIcon(getClass().getResource("/img/logoC.png"));
-    
-    // Redimensionar la imagen al tamaño del JLabel
-    Image imagenEscalada = imagenOriginal.getImage().getScaledInstance(
-        jLabel2.getWidth(),
-        jLabel2.getHeight(),
-        Image.SCALE_SMOOTH
-    );
-    
-    // Crear nuevo icono redimensionado
-    ImageIcon iconoRedimensionado = new ImageIcon(imagenEscalada);
-    
-    // Asignar la imagen redimensionada al JLabel
-    jLabel2.setIcon(iconoRedimensionado);
-}
+        // Crear nuevo icono redimensionado
+        ImageIcon iconoRedimensionado = new ImageIcon(imagenEscalada);
 
+        // Asignar la imagen redimensionada al JLabel
+        label.setIcon(iconoRedimensionado);
+    }
 
+    public void ValidadInicioDeSesion(String tipoDeVentana, JPanel panel) {
 
+        if (tipoDeVentana.equals("Usuarios")) {
+            try {
+            if (ValidarSesion.getRolsesion().equals("admin")) {
+                ShowPanel(panel);
+            } else {
+                JOptionPane.showMessageDialog(null, "No tiene Acceso");
+            }
+            } catch (Exception ex) {
+                //System.out.println("Ocurrio un error" + ex);
+                JOptionPane.showMessageDialog(null, "No mantiene permiso de administrador.");
+            }
+            
+        } else {
+            try {
+
+                if (ValidarSesion.getRolsesion().equals("admin") || !ValidarSesion.getRolsesion().isEmpty()) {
+                    ShowPanel(panel);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "No tiene Acceso");
+                }
+            } catch (Exception ex) {
+                System.out.println("Ocurrio un error" + ex);
+                JOptionPane.showMessageDialog(null, "debe iniciar sesion para continuar.");
+            }
+
+        }
+
+    }
 
 }

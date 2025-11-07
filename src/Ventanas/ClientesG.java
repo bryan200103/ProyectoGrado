@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -329,7 +330,9 @@ public class ClientesG extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_buscarusuarioMouseExited
 
     private void txt_buscarusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_buscarusuarioMouseClicked
-        client.buscarUsuarioPorCedula(GetTxtbuscarCedula());
+        String isOk = client.buscarUsuarioPorCedula(GetTxtbuscarCedula());
+        if(isOk.equals("404"))JOptionPane.showMessageDialog(null,"no existe cliente o cedula mal ingresada");
+        
         txt_buscarCedula.setText("");
     }//GEN-LAST:event_txt_buscarusuarioMouseClicked
 

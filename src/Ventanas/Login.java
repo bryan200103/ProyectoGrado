@@ -7,6 +7,7 @@ package Ventanas;
 import Controladores.ControladorUsuario;
 import Helper.EncrypPassw;
 import Modelos.Usuario;
+import Modelos.ValidarSesion;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -364,7 +365,9 @@ private void Loginn() {
             
 
             if (controlUsuario.login(usuario)) {
-                usuario.setRolSession(usuario.getRol());
+                
+                ValidarSesion.setRolsesion(usuario.getRol());
+                //usuario.setRolSession(usuario.getRol());
                 
 //                Vista_Menu menu = new Vista_Menu();
 //                menu.setVisible(true);

@@ -110,12 +110,13 @@ public class ControladorUsuario {
         return false; // no existe
     }
     
-    public void buscarUsuarioPorCedula(String cedula) {
+    public String buscarUsuarioPorCedula(String cedula) {
         Connection con = Conexionmy.Conectar();
         String cedulaBuscar = cedula;
 
         if (cedulaBuscar.isEmpty()) {
-            return; // No hacer búsqueda si está vacío
+            JOptionPane.showMessageDialog(null, "Ingrese cedula para buscar clientes");
+            return "500"; // No hacer búsqueda si está vacío
         }
 
         DefaultTableModel model = new DefaultTableModel();
@@ -125,7 +126,7 @@ public class ControladorUsuario {
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, "%" + cedulaBuscar + "%"); // Busca coincidencias parciales en la cédula
-
+            
             ResultSet rs = pst.executeQuery();
 
             model.addColumn("N°");
@@ -134,8 +135,12 @@ public class ControladorUsuario {
             model.addColumn("rol");
             model.addColumn("cedula");
             model.addColumn("User");
-
+            
+           
+            boolean hayDatos = false;
+            
             while (rs.next()) {
+                hayDatos = true;
                 Object[] fila = new Object[6];
                 for (int i = 0; i < 6; i++) {
                     fila[i] = rs.getObject(i + 1);
@@ -146,8 +151,17 @@ public class ControladorUsuario {
             UsuarioG.jTable_usuarios.setModel(model);
 
             con.close();
+            
+            if(!hayDatos){
+                return "404";
+            }
+            
+            
+            
+            return "200";
         } catch (SQLException e) {
             System.out.println("Error al buscar usuario por cédula: " + e);
+            return "401";
         }
     }
     
@@ -207,12 +221,13 @@ public class ControladorUsuario {
     
     
     
-    public void buscarUsuarioPorUser(String user) {
+    public String buscarUsuarioPorUser(String user) {
         Connection con = Conexionmy.Conectar();
         String BuscarUser = user;
 
         if (BuscarUser.isEmpty()) {
-            return; // No hacer búsqueda si está vacío
+            JOptionPane.showMessageDialog(null, "Ingrese nombre para buscar clientes");
+            return "500"; // No hacer búsqueda si está vacío
         }
 
         DefaultTableModel model = new DefaultTableModel();
@@ -230,9 +245,12 @@ public class ControladorUsuario {
             model.addColumn("clave");
             model.addColumn("rol");
             model.addColumn("cedula");
-            model.addColumn("User");;
+            model.addColumn("User");
+            
+            boolean hayDatos = false;
 
             while (rs.next()) {
+                hayDatos= true;
                 Object[] fila = new Object[6];
                 for (int i = 0; i < 6; i++) {
                     fila[i] = rs.getObject(i + 1);
@@ -243,8 +261,14 @@ public class ControladorUsuario {
             UsuarioG.jTable_usuarios.setModel(model);
 
             con.close();
+            
+            if(!hayDatos){
+                return "404";
+            }
+            return "200";
         } catch (SQLException e) {
             System.out.println("Error al buscar usuario: " + e);
+            return "401";
         }
     }
     

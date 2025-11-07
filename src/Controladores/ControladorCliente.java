@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -85,17 +86,21 @@ public boolean actualizar(Cliente objeto, int idCliente) {
 
     }
 
-public void buscarUsuarioPorCedula(String cedula) {
+public String buscarUsuarioPorCedula(String cedula) {
         Connection con = Conexionmy.Conectar();
         String BuscarCedula = cedula;
 
         if (BuscarCedula.isEmpty()) {
-            return; // No hacer búsqueda si está vacío
+            JOptionPane.showMessageDialog(null, "Ingrese cedula para buscar cliente");
+            return "500"; // No hacer búsqueda si está vacío
         }
 
         DefaultTableModel model = new DefaultTableModel();
 
         String sql = "SELECT * FROM clientes WHERE cedula LIKE ?;";
+        
+        
+        boolean hayDatos = false ;
 
         try {
             PreparedStatement pst = con.prepareStatement(sql);
@@ -111,6 +116,7 @@ public void buscarUsuarioPorCedula(String cedula) {
             model.addColumn("Correo");
 
             while (rs.next()) {
+                hayDatos= true;
                 Object[] fila = new Object[6];
                 for (int i = 0; i < 6; i++) {
                     fila[i] = rs.getObject(i + 1);
@@ -119,10 +125,16 @@ public void buscarUsuarioPorCedula(String cedula) {
             }
 
             ClientesG.jTable_cliente.setModel(model);
+            
 
             con.close();
+            if(!hayDatos){
+                return "404";
+            }
+            return "200";
         } catch (SQLException e) {
             System.out.println("Error al buscar Cliente: " + e);
+            return "401";
         }
         
         
@@ -137,13 +149,14 @@ public void buscarUsuarioPorName(String name) {
         String BuscarUser = name;
 
         if (BuscarUser.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese cedula para buscar cliente");
             return; // No hacer búsqueda si está vacío
         }
 
         DefaultTableModel model = new DefaultTableModel();
 
         String sql = "SELECT * FROM clientes WHERE nombre LIKE ?;";
-
+        boolean hayDatos= false;
         try {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, "%" + BuscarUser + "%"); // Busca coincidencias parciales en la cédula
@@ -158,6 +171,7 @@ public void buscarUsuarioPorName(String name) {
             model.addColumn("Correo");
 
             while (rs.next()) {
+                hayDatos = true;
                 Object[] fila = new Object[6];
                 for (int i = 0; i < 6; i++) {
                     fila[i] = rs.getObject(i + 1);
@@ -168,6 +182,9 @@ public void buscarUsuarioPorName(String name) {
             ClientesG.jTable_cliente.setModel(model);
 
             con.close();
+            if(!hayDatos){
+                JOptionPane.showMessageDialog(null, "Nombre mal ingresado o cliente no existe");
+            }
         } catch (SQLException e) {
             System.out.println("Error al buscar Cliente: " + e);
         }

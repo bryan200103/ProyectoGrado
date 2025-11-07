@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -323,12 +324,19 @@ public class UsuarioG extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_buscarusuarioMouseExited
 
     private void txt_buscarusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_buscarusuarioMouseClicked
-        user.buscarUsuarioPorUser(GetTxtbuscaruser());
+        String isOk = user.buscarUsuarioPorUser(GetTxtbuscaruser());
+        if(isOk.equals("404")){
+            JOptionPane.showMessageDialog(null, "Cliente no existe o nombre mal ingresado");
+        }
+        
         txt_buscarUser.setText("");
     }//GEN-LAST:event_txt_buscarusuarioMouseClicked
 
     private void txt_buscarcedulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_buscarcedulaMouseClicked
-        user.buscarUsuarioPorCedula(GetTxtbuscarC());
+        String isOk = user.buscarUsuarioPorCedula(GetTxtbuscarC());
+        if(isOk.equals("404")){
+            JOptionPane.showMessageDialog(null, "Cliente no existe o cedula mal ingresada");
+        }
         txt_buscarc.setText("");
     }//GEN-LAST:event_txt_buscarcedulaMouseClicked
 

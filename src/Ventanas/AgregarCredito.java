@@ -40,7 +40,7 @@ public class AgregarCredito extends javax.swing.JPanel {
     public AgregarCredito(CreditosG creditosG) {
         initComponents();
         CargarTipoCredito();
-        this.creditosG=creditosG;
+        this.creditosG = creditosG;
 //        txt_cedulaCliente.setEditable(false);
 //        txt_nombreCliente.setEditable(false);
         txt_fechareg.setText(formatear.format(fecha_reg));
@@ -277,47 +277,54 @@ public class AgregarCredito extends javax.swing.JPanel {
 
     private void txt_agregarCreditoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_agregarCreditoMouseClicked
         Creditos credito = new Creditos();
-        if(!txt_nombreCliente.getText().isEmpty() && !txt_cedulaCliente.getText().isEmpty()){
-            if(!jComboBox_tipoC.getSelectedItem().equals("Seleccione")){
-                if(!jComboBox_interes.getSelectedItem().equals("Seleccione")){
-                    if((int)jSpinner_cuotas.getValue()!=0){
-                        if(!txt_buscarCedula.getText().isEmpty() || !txt_nombreCliente.getText().isEmpty()){
-                            credito.setIdcliente(id_cliente);
-                            credito.setMonto(Double.parseDouble(txt_monto.getText().trim().replace(",", ".")));
-                            credito.setInteres(Integer.parseInt(jComboBox_interes.getSelectedItem().toString()));
-                            credito.setCuotas(((int) jSpinner_cuotas.getValue()));
-                            credito.setMontoTotal(Double.parseDouble(txt_totalconI.getText().trim().replace(",", ".")) );
-                            credito.setValorCuota(Double.parseDouble(txt_cuotaF.getText().trim().replace(",", ".")));
-                            credito.setSaldoPendiente(Double.parseDouble(txt_totalconI.getText().trim().replace(",", ".")));
-                            try{
-                            credito.setFechainicio(formatear.parse(txt_fechareg.getText().trim()));
-                            credito.setFechafin(formatear.parse(txt_fechafin.getText().trim()));
-                            }catch(Exception ex){
-                                System.out.println("error en el parseo de las fecha" + ex);
-                            }
-                            credito.setEstado("Pendiente");
-                            credito.setObservaciones(txt_observaciones.getText().trim());
-                            obtenerIdTipo();
-                            credito.setTipoCredito(id_tipo);
+        if (!txt_nombreCliente.getText().isEmpty() && !txt_cedulaCliente.getText().isEmpty()) {
+            if (!jComboBox_tipoC.getSelectedItem().equals("Seleccione")) {
+                if (!jComboBox_interes.getSelectedItem().equals("Seleccione")) {
+                    if ((int) jSpinner_cuotas.getValue() != 0) {
+                        if (!txt_buscarCedula.getText().isEmpty() || !txt_nombreCliente.getText().isEmpty()) {
+                            if (!txt_monto.getText().isEmpty()) {
+                                credito.setIdcliente(id_cliente);
+                                credito.setMonto(Double.parseDouble(txt_monto.getText().trim().replace(",", ".")));
+                                credito.setInteres(Integer.parseInt(jComboBox_interes.getSelectedItem().toString()));
+                                credito.setCuotas(((int) jSpinner_cuotas.getValue()));
+                                credito.setMontoTotal(Double.parseDouble(txt_totalconI.getText().trim().replace(",", ".")));
+                                credito.setValorCuota(Double.parseDouble(txt_cuotaF.getText().trim().replace(",", ".")));
+                                credito.setSaldoPendiente(Double.parseDouble(txt_totalconI.getText().trim().replace(",", ".")));
+                                try {
+                                    credito.setFechainicio(formatear.parse(txt_fechareg.getText().trim()));
+                                    credito.setFechafin(formatear.parse(txt_fechafin.getText().trim()));
+                                } catch (Exception ex) {
+                                    System.out.println("error en el parseo de las fecha" + ex);
+                                }
+                                credito.setEstado("Pendiente");
+                                credito.setObservaciones(txt_observaciones.getText().trim());
+                                obtenerIdTipo();
+                                credito.setTipoCredito(id_tipo);
 
-                            if(ctr.guardar(credito)){
-                                creditosG.CargarTablaCredito();
-                                JOptionPane.showMessageDialog(null, "Credito exitoso y se añadio como pendiente");
-                                this.Limpiar();
+                                if (ctr.guardar(credito)) {
+                                    creditosG.CargarTablaCredito();
+                                    JOptionPane.showMessageDialog(null, "Credito exitoso y se añadio como pendiente");
+                                    this.Limpiar();
+                                }
+
+                            } else {
+                                
+                                JOptionPane.showMessageDialog(null, "Ingrese monto de credito");
                             }
-                        }else{
+
+                        } else {
                             JOptionPane.showMessageDialog(null, "Ingrese numero de cedula");
                         }
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(null, "Seleccione el numero de cuotas");
                     }
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Seleccione el tipo interes");
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Seleccione el tipo de plazo");
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Seleccione un cliente");
         }
     }//GEN-LAST:event_txt_agregarCreditoMouseClicked
@@ -485,62 +492,61 @@ public class AgregarCredito extends javax.swing.JPanel {
             txt_cuotaF.setText(String.format("%.2f", valorCuota));
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Revisa los valores ingresados: " + e);
+            JOptionPane.showMessageDialog(null, "El valor ingresado debe ser numerico ");
         }
 
     }
 
     public String calcularFechaFin() {
-    DateTimeFormatter formatear = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    String tipoCuota = (String) jComboBox_tipoC.getSelectedItem();
-    int cuotas = (Integer) jSpinner_cuotas.getValue();
-    
-    LocalDate fechaInicio;
-    try {
-        fechaInicio = LocalDate.parse(txt_fechareg.getText().trim(), formatear);
-    } catch (Exception e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Formato de fecha de inicio inválido");
-        return "";
+        DateTimeFormatter formatear = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String tipoCuota = (String) jComboBox_tipoC.getSelectedItem();
+        int cuotas = (Integer) jSpinner_cuotas.getValue();
+
+        LocalDate fechaInicio;
+        try {
+            fechaInicio = LocalDate.parse(txt_fechareg.getText().trim(), formatear);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Formato de fecha de inicio inválido");
+            return "";
+        }
+
+        LocalDate fechaFin = fechaInicio;
+
+        // Calcular fecha de fin según tipo de cuota
+        switch (tipoCuota) {
+            case "Diario":
+                fechaFin = fechaInicio.plusDays(cuotas);
+                break;
+            case "Semanal":
+                fechaFin = fechaInicio.plusWeeks(cuotas);
+                break;
+            case "Mensual":
+                fechaFin = fechaInicio.plusMonths(cuotas);
+                break;
+            default:
+                System.out.println("Tipo de cuota no reconocido, usando fecha inicio como fecha fin.");
+        }
+
+        // Mostrar fecha fin en el txt correspondiente
+        String fechaFinStr = fechaFin.format(formatear);
+        txt_fechafin.setText(fechaFinStr);
+
+        return fechaFinStr;
     }
 
-    LocalDate fechaFin = fechaInicio;
-
-    // Calcular fecha de fin según tipo de cuota
-    switch (tipoCuota) {
-        case "Diario":
-            fechaFin = fechaInicio.plusDays(cuotas);
-            break;
-        case "Semanal":
-            fechaFin = fechaInicio.plusWeeks(cuotas);
-            break;
-        case "Mensual":
-            fechaFin = fechaInicio.plusMonths(cuotas);
-            break;
-        default:
-            System.out.println("Tipo de cuota no reconocido, usando fecha inicio como fecha fin.");
+    public void Limpiar() {
+        txt_cedulaCliente.setText("");
+        txt_buscarCedula.setText("");
+        txt_cuotaF.setText("");
+        txt_fechafin.setText("");
+        txt_fechareg.setText("");
+        txt_monto.setText("");
+        txt_nombreCliente.setText("");
+        txt_observaciones.setText("");
+        txt_totalconI.setText("");
+        jSpinner_cuotas.setValue(0);
+        jComboBox_tipoC.setSelectedItem("Seleccione");
+        jComboBox_interes.setSelectedItem("Seleccione");
     }
-
-    // Mostrar fecha fin en el txt correspondiente
-    String fechaFinStr = fechaFin.format(formatear);
-    txt_fechafin.setText(fechaFinStr);
-
-    return fechaFinStr;
-}
-
-    
-public void Limpiar(){
-    txt_cedulaCliente.setText("");
-    txt_buscarCedula.setText("");
-    txt_cuotaF.setText("");
-    txt_fechafin.setText("");
-    txt_fechareg.setText("");
-    txt_monto.setText("");
-    txt_nombreCliente.setText("");
-    txt_observaciones.setText("");
-    txt_totalconI.setText("");
-    jSpinner_cuotas.setValue(0);
-    jComboBox_tipoC.setSelectedItem("Seleccione");
-    jComboBox_interes.setSelectedItem("Seleccione");
-}
 }
