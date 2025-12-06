@@ -35,8 +35,8 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
     int xmouse, ymouse;
 
     public static JDesktopPane jDesktopPane_menu;
-    String rutaimglogo = "/img/logoC.png";
-    String rutalogopantalla = "/img/logoC.png";
+    String rutaimglogo = "/Img/logoC.png";
+    String rutalogopantalla = "/Img/logoC.png";
 //    GestionClientes.jDesktopPane_men= this.jDesktopPane_men;
 
 //    private JMenuItem menucliente;
@@ -55,8 +55,9 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
      */
     public Vista_Menu_Prueba() {
         initComponents();
-
         ajustarImagenAlLabel(jLabel2, rutaimglogo);
+        setIconImage(new ImageIcon(getClass().getResource("/Img/icono.png")).getImage());
+
         //ajustarImagenAlLabel(jLabel1, rutalogopantalla);
         jDesktopPane_menu = new JDesktopPane();
         //ControladorUsuario user = new ControladorUsuario();
@@ -462,7 +463,7 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
     private void txt_HistPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_HistPagosMouseClicked
         HistorialDePagos historial = new HistorialDePagos();
-        ValidadInicioDeSesion("Historial",historial);
+        ValidadInicioDeSesion("Historial", historial);
 
 
     }//GEN-LAST:event_txt_HistPagosMouseClicked
@@ -479,7 +480,7 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
     private void txt_transaccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_transaccionMouseClicked
         TblaClientesAtrasados atrasados = new TblaClientesAtrasados();
-        ValidadInicioDeSesion("Atrasados",atrasados);
+        ValidadInicioDeSesion("Atrasados", atrasados);
 
 
     }//GEN-LAST:event_txt_transaccionMouseClicked
@@ -497,7 +498,7 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
     private void txt_creditosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_creditosMouseClicked
         CreditosG cred = new CreditosG();
 
-        ValidadInicioDeSesion("Creditos",cred);
+        ValidadInicioDeSesion("Creditos", cred);
 
 
     }//GEN-LAST:event_txt_creditosMouseClicked
@@ -514,7 +515,7 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
     private void txt_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_clienteMouseClicked
         ClientesG client = new ClientesG();
-        ValidadInicioDeSesion("Clientes",client);
+        ValidadInicioDeSesion("Clientes", client);
 
 
     }//GEN-LAST:event_txt_clienteMouseClicked
@@ -533,9 +534,8 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
         UsuarioG user = new UsuarioG();
 
-        ValidadInicioDeSesion("Usuarios",user);
+        ValidadInicioDeSesion("Usuarios", user);
 
-        
 
     }//GEN-LAST:event_txt_usuarioMouseClicked
 
@@ -647,16 +647,16 @@ public class Vista_Menu_Prueba extends javax.swing.JFrame {
 
         if (tipoDeVentana.equals("Usuarios")) {
             try {
-            if (ValidarSesion.getRolsesion().equals("admin")) {
-                ShowPanel(panel);
-            } else {
-                JOptionPane.showMessageDialog(null, "No tiene Acceso");
-            }
+                if (ValidarSesion.getRolsesion().equals("admin")) {
+                    ShowPanel(panel);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No tiene Acceso");
+                }
             } catch (Exception ex) {
                 //System.out.println("Ocurrio un error" + ex);
                 JOptionPane.showMessageDialog(null, "No mantiene permiso de administrador.");
             }
-            
+
         } else {
             try {
 

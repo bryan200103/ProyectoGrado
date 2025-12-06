@@ -391,7 +391,7 @@ public class HistorialDePagos extends javax.swing.JPanel {
             listaCreditos.clear();
 
             if (!rs.isBeforeFirst()) {
-                JOptionPane.showMessageDialog(null, "Cliente no existe o cédula mal ingresada");
+                JOptionPane.showMessageDialog(null, "Cliente no cuenta con pago o no existe ");
             } else {
                 while (rs.next()) {
                     double saldoPendiente = rs.getDouble("saldo_pendiente");

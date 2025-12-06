@@ -476,18 +476,18 @@ public class AgregarCredito extends javax.swing.JPanel {
 
     public void calcularCredito() {
         try {
-            // 1. Obtener datos
+            
             double monto = Double.parseDouble(txt_monto.getText());
             int interes = Integer.parseInt((String) jComboBox_interes.getSelectedItem());
             int cuotas = (Integer) jSpinner_cuotas.getValue();
 
-            // 2. Calcular total con interés
+            
             double totalConInteres = monto + (monto * interes / 100);
 
-            // 3. Calcular valor de cada cuota
+            
             double valorCuota = totalConInteres / cuotas;
 
-            // 4. Asignar valores a los JTextField
+            
             txt_totalconI.setText(String.format("%.2f", totalConInteres));
             txt_cuotaF.setText(String.format("%.2f", valorCuota));
 

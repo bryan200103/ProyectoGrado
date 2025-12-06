@@ -9,10 +9,13 @@ import Helper.EncrypPassw;
 import Modelos.Usuario;
 import Modelos.ValidarSesion;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.Clock;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -31,8 +34,12 @@ public class Login extends javax.swing.JFrame {
     int xmouse, ymouse;
     public Login() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/Img/icono.png")).getImage());
+        getIconImage();
        
     }
+    
+    
     
    
 

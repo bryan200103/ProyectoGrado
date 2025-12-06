@@ -179,7 +179,27 @@ public class AgregarUser extends javax.swing.JPanel {
             if (!controladorUsuario.UsuarioExiste(txt_cedula1.getText().trim())) {
                 if (!controladorUsuario.usuarioExistePorUserLogin(txt_usuario.getText().trim())) {
                     usuario.setNombre(txt_nombre.getText().trim());
-                    usuario.setCedula(txt_cedula1.getText().trim());
+                    
+                    try {
+
+                    Long cedula = Long.parseLong(txt_cedula1.getText().trim());
+                    int caracteres = txt_cedula1.getText().length();
+                    System.out.println(caracteres);
+                    if (caracteres == 10) {
+                        System.out.println(cedula);
+                        usuario.setCedula(txt_cedula1.getText().trim());
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "La cedula solo debe tener 10 digitos");
+                        return;
+                    }
+
+                } catch (Exception e) {
+                    System.out.println("la conversion no se realizo con exito" + e);
+                    JOptionPane.showMessageDialog(null, "La cedula solo permite caracteres numericos");
+                    return;
+
+                }
                     usuario.setUser(txt_usuario.getText().trim());
                     String pass = encryp.encriptarSHA256(txt_clave.getText().trim());
                     usuario.setClave(pass);

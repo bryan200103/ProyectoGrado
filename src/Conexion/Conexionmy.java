@@ -13,7 +13,7 @@ public class Conexionmy {
     public static Connection Conectar() {
 
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/prestamos_1?useSSL=false&allowPublicKeyRetrieval=true", "root","Guitar3bry");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/prestamos_1?useSSL=false&allowPublicKeyRetrieval=true","root","Guitar3bry");
             return cn;
         } catch (SQLException e) {
             System.out.println("Error en la conexion local: " + e);
